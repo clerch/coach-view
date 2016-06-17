@@ -940,3 +940,1164 @@ ActionView::MissingTemplate (Missing template team/show, application/show with {
   [1m[36m (3.2ms)[0m  [1mBEGIN[0m
   [1m[35mSQL (22.8ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "WhiskeyJacks"], ["created_at", "2016-06-17 19:22:15.672741"], ["updated_at", "2016-06-17 19:22:15.672741"]]
   [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:00:39 -0700
+
+PG::ConnectionBad (FATAL:  Peer authentication failed for user "coach"
+):
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `initialize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `new'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+  activerecord (4.2.6) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /usr/lib/ruby/2.3.0/monitor.rb:214:in `mon_synchronize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /usr/lib/ruby/2.3.0/monitor.rb:214:in `mon_synchronize'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.6) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.6) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.6) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.6) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (141.2ms)
+  [1m[36m (42.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (41.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160616221946)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (97.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616221946"]]
+  [1m[36m (13.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGrades (20160616222210)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (83.1ms)[0m  [1mCREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "assignment_type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222210"]]
+  [1m[36m (19.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20160616222421)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (76.7ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222421"]]
+  [1m[36m (24.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTeams (20160616222513)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (101.5ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222513"]]
+  [1m[36m (18.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'grades'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'resources'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teams'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (22.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (18.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (18.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (18.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "t"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (17.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-27"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "RazerSharks"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HippoHerd"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["course", "Math"], ["assignment_type", "Assignment"], ["grade", 78], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (21.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 2], ["course", "Physics"], ["assignment_type", "Midterm"], ["grade", 56], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (19.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 3], ["course", "Science"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (19.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 4], ["course", "French"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (18.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 5], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 6], ["course", "Music"], ["assignment_type", "Midterm"], ["grade", 35], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 7], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Science"], ["assignment_type", "Midterm"], ["grade", 99], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "Calculus"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Math"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "History"], ["assignment_type", "Final"], ["grade", 33], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (22.2ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (24.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (18.3ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "early morning run"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "100 pushups"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.7ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (24.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (20.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (20.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (20.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 3], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[36m (13.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 3], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
+  [1m[35m (13.2ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:13:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:23: syntax error, unexpected tIDENTIFIER, expecting '}'
+        id: player.id
+          ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:24: syntax error, unexpected ':', expecting keyword_end
+        events: player.get_calendar
+               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:25: syntax error, unexpected '}', expecting keyword_end
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:46: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/team_controller.rb:23: syntax error, unexpected tIDENTIFIER, expecting '}'
+  app/controllers/team_controller.rb:24: syntax error, unexpected ':', expecting keyword_end
+  app/controllers/team_controller.rb:25: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/team_controller.rb:46: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (55.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:42:01 -0700
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+TypeError (no implicit conversion of Hash into String):
+  app/controllers/team_controller.rb:32:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (49.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:45:43 -0700
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '{"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", "client_id"=>"1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com", "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], "state"=>nil, "code"=>nil, "redirect_uri"=>"http://localhost:3000/sessions/create", "username"=>nil, "password"=>nil, "issuer"=>nil, "audience"=>nil, "person"=>nil, "expiry"=>60, "expires_at"=>1466196261, "signing_key"=>nil, "refresh_token"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xRrte06M7_J7LMxIpzwaP-A4PVkE_uZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension_parameters"=>{}}'):
+  app/controllers/team_controller.rb:32:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:48:36 -0700
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '{"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", "client_id"=>"1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com", "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], "state"=>nil, "code"=>nil, "redirect_uri"=>"http://localhost:3000/sessions/create", "username"=>nil, "password"=>nil, "issuer"=>nil, "audience"=>nil, "person"=>nil, "expiry"=>60, "expires_at"=>1466196261, "signing_key"=>nil, "refresh_token"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xRrte06M7_J7LMxIpzwaP-A4PVkE_uZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension_parameters"=>{}}'):
+  app/controllers/team_controller.rb:32:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (52.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:50:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+...JSON.parse("{"authorization_uri"=>"https://accounts.google.c...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...e("{"authorization_uri"=>"https://accounts.google.com/o/oaut...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - acct
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...e.com/o/oauth2/auth?access_type=offline&client_id=1072088737...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&r...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...rcontent.com&redirect_uri=http://localhost:3000/sessions/cre...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...&redirect_uri=http://localhost:3000/sessions/create&response...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...response_type=code&scope=https://www.googleapis.com/auth/cal...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...w.googleapis.com/auth/calendar", "token_credential_uri"=>"ht...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...alendar", "token_credential_uri"=>"https://accounts.google.c...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... "token_credential_uri"=>"https://accounts.google.com/o/oaut...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - acct
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...unts.google.com/o/oauth2/token", "client_id"=>"1072088737400...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...com/o/oauth2/token", "client_id"=>"1072088737400-0mufodco7n7...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tINTEGER, expecting keyword_end
+...n", "client_id"=>"1072088737400-0mufodco7n7utcg21v8mis7s407t...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com",...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...sercontent.com", "client_secret"=>nil, "scope"=>["https://ww...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...", "client_secret"=>nil, "scope"=>["https://www.googleapis.c...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+..._secret"=>nil, "scope"=>["https://www.googleapis.com/auth/ca...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - www
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...w.googleapis.com/auth/calendar"], "state"=>nil, "code"=>nil,...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...pis.com/auth/calendar"], "state"=>nil, "code"=>nil, "redirec...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...calendar"], "state"=>nil, "code"=>nil, "redirect_uri"=>"http...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...nil, "code"=>nil, "redirect_uri"=>"http://localhost:3000/ses...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...de"=>nil, "redirect_uri"=>"http://localhost:3000/sessions/cr...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - lcalht
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...localhost:3000/sessions/create", "username"=>nil, "password"...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...000/sessions/create", "username"=>nil, "password"=>nil, "iss...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...te", "username"=>nil, "password"=>nil, "issuer"=>nil, "audie...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...=>nil, "password"=>nil, "issuer"=>nil, "audience"=>nil, "per...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...=>nil, "issuer"=>nil, "audience"=>nil, "person"=>nil, "expir...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...=>nil, "audience"=>nil, "person"=>nil, "expiry"=>60, "expire...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...e"=>nil, "person"=>nil, "expiry"=>60, "expires_at"=>14661962...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...>nil, "expiry"=>60, "expires_at"=>1466196261, "signing_key"=...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...s_at"=>1466196261, "signing_key"=>nil, "refresh_token"=>nil,...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...gning_key"=>nil, "refresh_token"=>nil, "access_token"=>"ya29...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...resh_token"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xR...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...en"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xRrte06M7_...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...aP-A4PVkE_uZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension_parameters...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...en"=>nil, "extension_parameters"=>{}}")
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected ')', expecting keyword_end):
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - acct
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - acct
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tINTEGER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - www
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - lcalht
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (49.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:53:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+...arse("{authorization_uri:"https://accounts.google.com/o/oaut...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - acct
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...e.com/o/oauth2/auth?access_type=offline&client_id=1072088737...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&r...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...rcontent.com&redirect_uri=http://localhost:3000/sessions/cre...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...&redirect_uri=http://localhost:3000/sessions/create&response...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...response_type=code&scope=https://www.googleapis.com/auth/cal...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...w.googleapis.com/auth/calendar", "token_credential_uri"=>"ht...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...alendar", "token_credential_uri"=>"https://accounts.google.c...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... "token_credential_uri"=>"https://accounts.google.com/o/oaut...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - acct
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...unts.google.com/o/oauth2/token", "client_id"=>"1072088737400...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...com/o/oauth2/token", "client_id"=>"1072088737400-0mufodco7n7...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tINTEGER, expecting keyword_end
+...n", "client_id"=>"1072088737400-0mufodco7n7utcg21v8mis7s407t...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com",...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...sercontent.com", "client_secret"=>nil, "scope"=>["https://ww...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...", "client_secret"=>nil, "scope"=>["https://www.googleapis.c...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+..._secret"=>nil, "scope"=>["https://www.googleapis.com/auth/ca...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - www
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...w.googleapis.com/auth/calendar"], "state"=>nil, "code"=>nil,...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...pis.com/auth/calendar"], "state"=>nil, "code"=>nil, "redirec...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...calendar"], "state"=>nil, "code"=>nil, "redirect_uri"=>"http...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...nil, "code"=>nil, "redirect_uri"=>"http://localhost:3000/ses...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...de"=>nil, "redirect_uri"=>"http://localhost:3000/sessions/cr...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: unknown regexp options - lcalht
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...localhost:3000/sessions/create", "username"=>nil, "password"...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...000/sessions/create", "username"=>nil, "password"=>nil, "iss...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...te", "username"=>nil, "password"=>nil, "issuer"=>nil, "audie...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...=>nil, "password"=>nil, "issuer"=>nil, "audience"=>nil, "per...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...=>nil, "issuer"=>nil, "audience"=>nil, "person"=>nil, "expir...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...=>nil, "audience"=>nil, "person"=>nil, "expiry"=>60, "expire...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...e"=>nil, "person"=>nil, "expiry"=>60, "expires_at"=>14661962...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...>nil, "expiry"=>60, "expires_at"=>1466196261, "signing_key"=...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...s_at"=>1466196261, "signing_key"=>nil, "refresh_token"=>nil,...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...gning_key"=>nil, "refresh_token"=>nil, "access_token"=>"ya29...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...resh_token"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xR...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...en"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xRrte06M7_...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...aP-A4PVkE_uZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension_parameters...
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...en"=>nil, "extension_parameters"=>{}}")
+...                               ^
+/home/ryan/Dropbox/LighthouseLabs/coach-view/app/controllers/team_controller.rb:32: syntax error, unexpected ')', expecting keyword_end):
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/controllers/team_controller.rb:32: unknown regexp options - acct
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - acct
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tINTEGER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - www
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: unknown regexp options - lcalht
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/team_controller.rb:32: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (55.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 14:57:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+TypeError (no implicit conversion of Hash into String):
+  app/controllers/team_controller.rb:32:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (27.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (51.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 15:00:10 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `stringify' for JSON:Module
+Did you mean?  String):
+  app/controllers/team_controller.rb:32:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (47.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 15:01:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant TeamController::Signet):
+  app/controllers/team_controller.rb:33:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (48.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 15:02:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '{"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", "client_id"=>"1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com", "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], "state"=>nil, "code"=>nil, "redirect_uri"=>"http://localhost:3000/sessions/create", "username"=>nil, "password"=>nil, "issuer"=>nil, "audience"=>nil, "person"=>nil, "expiry"=>60, "expires_at"=>1466196261, "signing_key"=>nil, "refresh_token"=>nil, "access_token"=>"ya29.CjAEA9_NeFit-ogvj4xRrte06M7_J7LMxIpzwaP-A4PVkE_uZVdGVtMwAI_6GWXxz1M", "id_token"=>nil, "extension_parameters"=>{}}'):
+  app/controllers/team_controller.rb:32:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (44.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 15:06:13 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant TeamController::Signet):
+  app/controllers/team_controller.rb:33:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (33.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 15:06:50 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Sending HTTP get https://www.googleapis.com/calendar/v3/users/me/calendarList?
+Caught error Missing authorization code.
+Error - #<ArgumentError: Missing authorization code.>
+
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Missing authorization code.):
+  app/controllers/team_controller.rb:43:in `create_google_auth'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (48.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 15:16:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#create_google_auth as HTML
+Sending HTTP get https://www.googleapis.com/calendar/v3/users/me/calendarList?
+200
+#<Hurley::Response GET https://www.googleapis.com/calendar/v3/users/me/calendarList == 200 (5625 bytes) 482ms>
+Success - #<Google::Apis::CalendarV3::CalendarList:0x007f9c90f78aa8
+ @etag="\"1465939406090000\"",
+ @items=
+  [#<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c90fca380
+    @access_role="owner",
+    @background_color="#9fe1e7",
+    @color_id="14",
+    @default_reminders=
+     [#<Google::Apis::CalendarV3::EventReminder:0x00000003ea5eb8
+       @minutes=30,
+       @reminder_method="popup">],
+    @etag="\"1465939042429000\"",
+    @foreground_color="#000000",
+    @id="coachapp.player@gmail.com",
+    @kind="calendar#calendarListEntry",
+    @notification_settings=
+     #<Google::Apis::CalendarV3::CalendarListEntry::NotificationSettings:0x007f9c90fd08e8
+      @notifications=
+       [#<Google::Apis::CalendarV3::CalendarNotification:0x00000003e9a1d0
+         @delivery_method="email",
+         @type="eventCreation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x007f9c90fdafa0
+         @delivery_method="email",
+         @type="eventChange">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x007f9c90fd9998
+         @delivery_method="email",
+         @type="eventCancellation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x007f9c90fd8390
+         @delivery_method="email",
+         @type="eventResponse">]>,
+    @primary=true,
+    @selected=true,
+    @summary="coachapp.player@gmail.com",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c90fdd688
+    @access_role="owner",
+    @background_color="#9a9cff",
+    @color_id="17",
+    @default_reminders=[],
+    @etag="\"1465939037110000\"",
+    @foreground_color="#000000",
+    @id="kpm9t1e4bekkq4s4qjfo5fuj8s@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player3",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x00000003e7f060
+    @access_role="owner",
+    @background_color="#9fe1e7",
+    @color_id="14",
+    @default_reminders=[],
+    @etag="\"1465929928446000\"",
+    @foreground_color="#000000",
+    @id="tgijbtj32eem3k47csuaqa0sng@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player10",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c90ff2fb0
+    @access_role="owner",
+    @background_color="#7bd148",
+    @color_id="9",
+    @default_reminders=[],
+    @etag="\"1465939039786000\"",
+    @foreground_color="#000000",
+    @id="uaatl1s69n8qd9sb4e72crjjv0@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player8",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c90ff8f50
+    @access_role="owner",
+    @background_color="#16a765",
+    @color_id="8",
+    @default_reminders=[],
+    @etag="\"1465939040691000\"",
+    @foreground_color="#000000",
+    @id="9qn9be450gq7hdjd7q2k9bvkgs@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player9",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c91007780
+    @access_role="owner",
+    @background_color="#ff7537",
+    @color_id="5",
+    @default_reminders=[],
+    @etag="\"1465939037824000\"",
+    @foreground_color="#000000",
+    @id="5h27sjqm8tiqh89stc6fjd3a0s@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player4",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c9100d680
+    @access_role="owner",
+    @background_color="#fad165",
+    @color_id="12",
+    @default_reminders=[],
+    @etag="\"1465939039392000\"",
+    @foreground_color="#000000",
+    @id="ojgp6p9sabsj9tbpnvui30r5sg@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player7",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c9101bf78
+    @access_role="owner",
+    @background_color="#d06b64",
+    @color_id="2",
+    @default_reminders=[],
+    @etag="\"1465939038687000\"",
+    @foreground_color="#000000",
+    @id="es850bov5ebci9hm80hfl5i688@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player5",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c9101e160
+    @access_role="owner",
+    @background_color="#ff7537",
+    @color_id="5",
+    @default_reminders=[],
+    @etag="\"1465939036382000\"",
+    @foreground_color="#000000",
+    @id="tuj4rmqq3qet5as2r8p8n7ttvo@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player2",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c91024088
+    @access_role="owner",
+    @background_color="#7bd148",
+    @color_id="9",
+    @default_reminders=[],
+    @etag="\"1465939038687000\"",
+    @foreground_color="#000000",
+    @id="hbioporg68e78gvhqk57bc2ed0@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player6",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c91032b38
+    @access_role="owner",
+    @background_color="#cabdbf",
+    @color_id="20",
+    @default_reminders=[],
+    @etag="\"1465939041661000\"",
+    @foreground_color="#000000",
+    @id="9ln223vl0na91ldt43bpvkbfus@group.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Player1",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c91038ad8
+    @access_role="reader",
+    @background_color="#92e1c0",
+    @color_id="13",
+    @default_reminders=[],
+    @description=
+     "Displays birthdays of people in Google Contacts and optionally \"Your Circles\" from Google+. Also displays anniversary and other event dates from Google Contacts, if applicable.",
+    @etag="\"1465927730271000\"",
+    @foreground_color="#000000",
+    @id="#contacts@group.v.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Birthdays",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x007f9c91046ea8
+    @access_role="reader",
+    @background_color="#16a765",
+    @color_id="8",
+    @default_reminders=[],
+    @description="Holidays and Observances in Canada",
+    @etag="\"1465927719639000\"",
+    @foreground_color="#000000",
+    @id="en.canadian#holiday@group.v.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Holidays in Canada",
+    @time_zone="America/Vancouver">],
+ @kind="calendar#calendarList",
+ @next_sync_token="CJDev-y5qM0CEhljb2FjaGFwcC5wbGF5ZXJAZ21haWwuY29t">
+
+Completed 500 Internal Server Error in 580ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate (Missing template team/create_google_auth, application/create_google_auth with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ryan/Dropbox/LighthouseLabs/coach-view/app/views"
+):
+  actionview (4.2.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.6) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.6) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.6) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (35.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (65.6ms)
