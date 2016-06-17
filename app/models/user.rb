@@ -7,9 +7,4 @@ class User < ActiveRecord::Base
   belongs_to :team
   has_many :grades  
 
-  def get_calendar_list
-
-  end
-
-
 end
