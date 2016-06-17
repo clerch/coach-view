@@ -1,0 +1,935 @@
+  [1m[36m (60.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (5.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160616221946)
+  [1m[35m (1.2ms)[0m  BEGIN
+  [1m[36m (29.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616221946"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGrades (20160616222210)
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (11.3ms)[0m  [1mCREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222210"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePlayerRoles (20160616222253)
+  [1m[35m (1.4ms)[0m  BEGIN
+  [1m[36m (24.8ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222253"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20160616222421)
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36m (12.3ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222421"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTeams (20160616222513)
+  [1m[35m (1.9ms)[0m  BEGIN
+  [1m[36m (18.1ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222513"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (10.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'Coaches'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'Grades'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (8.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'PlayerRoles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'Players'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (9.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'Resources'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (8.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'SequelizeData'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (9.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'SequelizeMeta'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'TeamCoaches'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'TeamPlayers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'Teams'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'grades'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'resources'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teams'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36m (22.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (4.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160616221946)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (16.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616221946"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGrades (20160616222210)
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (17.4ms)[0m  [1mCREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222210"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePlayerRoles (20160616222253)
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36m (38.5ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222253"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20160616222421)
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (11.1ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222421"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTeams (20160616222513)
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (19.5ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222513"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'grades'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'resources'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teams'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36mSQL (19.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "t"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "RazerSharks"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HippoHerd"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (33.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (8.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160616221946)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (17.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616221946"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGrades (20160616222210)
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36m (14.3ms)[0m  [1mCREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "assignment_type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222210"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePlayerRoles (20160616222253)
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222253"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateResources (20160616222421)
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (13.0ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222421"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTeams (20160616222513)
+  [1m[35m (1.9ms)[0m  BEGIN
+  [1m[36m (17.5ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160616222513"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (9.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'grades'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'resources'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teams'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (8.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "t"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "RazerSharks"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HippoHerd"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "t"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "RazerSharks"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HippoHerd"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "t"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["team_id", 2], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["team_id", 2], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["refresh_token", "fjdklsa384934dskfj"], ["token_expiry_date", "2016-06-26"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "RazerSharks"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HippoHerd"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (9.4ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["course", "Math"], ["assignment_type", "Assignment"], ["grade", 78], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 2], ["course", "Physics"], ["assignment_type", "Midterm"], ["grade", 56], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 3], ["course", "Science"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 4], ["course", "French"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 5], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 6], ["course", "Music"], ["assignment_type", "Midterm"], ["grade", 35], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 7], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Science"], ["assignment_type", "Midterm"], ["grade", 99], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "Calculus"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Math"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "History"], ["assignment_type", "Final"], ["grade", 33], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "early morning run"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "100 pushups"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 3], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 3], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-16 00:00:00.000000"], ["updated_at", "2016-06-16 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2016-06-16 17:44:43 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (15.2ms)
+Completed 200 OK in 135ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/team" for ::1 at 2016-06-16 17:44:50 -0700
+Processing by TeamController#index as HTML
+  [1m[35mTeam Load (3.7ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 110ms (ActiveRecord: 30.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=):
+  app/controllers/team_controller.rb:5:in `index'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.3ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.9ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (227.9ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (188.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (441.2ms)
+
+
+Started GET "/team/1" for ::1 at 2016-06-16 17:45:04 -0700
+
+AbstractController::ActionNotFound (The action 'show' could not be found for TeamController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (8.3ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (162.9ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (372.4ms)
+
+
+Started GET "/team/1" for ::1 at 2016-06-16 17:59:17 -0700
+
+AbstractController::ActionNotFound (The action 'show' could not be found for TeamController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (5.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (168.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (360.9ms)
+
+
+Started GET "/team" for ::1 at 2016-06-16 17:59:22 -0700
+Processing by TeamController#index as HTML
+  [1m[36mTeam Load (2.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 12ms (ActiveRecord: 2.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=):
+  app/controllers/team_controller.rb:5:in `index'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (162.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (153.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (346.8ms)
+
+
+Started GET "/team/1" for ::1 at 2016-06-16 18:00:22 -0700
+Processing by TeamController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (8.6ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 17.3ms)
+
+ActionView::MissingTemplate (Missing template team/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chrislerch/lighthouse/final_project/coach-view/app/views"
+):
+  actionview (4.2.6) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.6) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.6) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.6) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.6) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.6) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.6) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.6) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.6) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.6) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/chrislerch/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.8ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (190.2ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (158.8ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (341.8ms)
