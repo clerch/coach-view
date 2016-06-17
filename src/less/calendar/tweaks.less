@@ -1,0 +1,45 @@
+// the entire calendar
+.rbc-calendar {
+  font-size:12px;
+  font-weight:200;
+  background-color: @calendar-bg-color;
+  padding: 15px;
+  box-shadow: @shadow-3;
+}
+// events and mouse event creation
+.rbc-event, .rbc-slot-selection {
+  width: 100% !important;
+  left: 0px !important;
+  font-size:0px;
+}
+// time grid on weekly/daily
+.rbc-time-content {
+  overflow: scroll;
+  border-top: none;
+  padding-top: 0px;
+  background-color: @content-bg-color;
+}
+// month grid, agenda grid
+.rbc-month-view, .rbc-agenda-view {
+  background-color: @content-bg-color;
+}
+// all day header
+.rbc-time-header > .rbc-row:nth-of-type(2) {
+    display: none;
+}
+// time grid with headers
+.rbc-time-view {
+  box-shadow: @shadow-1;
+}
+// buttons
+.rbc-btn-group button {
+  box-shadow: @shadow-2;
+}
+
+.rbc-time-header .rbc-row:first-child {
+  background-color: @btn-bg;
+}
+.rbc-event[title*="TEAM_EVENT"] {
+  background-color: grey;
+  z-index:99;
+}

@@ -1,0 +1,29 @@
+.resourceListContainer {
+  width:230px;
+  max-height:400px;
+  background-color: $box-background-one;
+  position:relative;
+  margin:30px auto;
+  box-shadow: $shadow-3;
+  clear:left;
+}
+
+.resourceList {
+  list-style-type: none;
+  max-height:inherit;
+  margin:0;
+  overflow: scroll;
+  padding:0;
+  position:relative;
+}
+.resourceList li {
+  background-color:#bbf1bb;
+  margin: 3px;
+  padding:5px;
+  font-weight:200;
+  font-size:18px;
+}
+
+.resourceList li:hover {
+  background-color:grey;
+}
