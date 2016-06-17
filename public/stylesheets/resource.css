@@ -1,0 +1,33 @@
+.container-fluid {
+/*  border: 3px solid black;*/
+  background-color: lightgrey;
+}
+
+.calendar {
+  position: relative;
+  float: right;
+  width: 65%;
+  height: 100vh;
+  background-color: lightgrey;
+  text-align: center;
+  border: 3px solid black;
+}
+
+.team-list {
+  position: relative;
+  width: 30%;
+  height: 65vh;
+  background-color: lightgrey;
+  text-align: left;
+  border: 3px solid black;
+}
+
+.resource-list {
+  position: relative;
+  width: 30%;
+  height: 33vh;
+  background-color: lightgrey;
+  text-align: left;
+  border: 3px solid black;
+  margin-top: 10px;
+}

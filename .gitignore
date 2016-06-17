@@ -1,3 +1,4 @@
+node_modules
 .env
 .bundle
 /db/*.db
@@ -6,4 +7,3 @@
 /db/*.sqlite3-journal
 .DS_Store
 public/assets
-
