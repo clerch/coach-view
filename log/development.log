@@ -933,3 +933,10 @@ ActionView::MissingTemplate (Missing template team/show, application/show with {
   Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
   Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
   Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (341.8ms)
+  [1m[36mTeam Load (4.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTeam Load (1.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mResource Load (16.1ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE "resources"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[35mUser Load (21.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."team_id" = $1 AND "users"."coach" = $2  [["team_id", 1], ["coach", "f"]]
+  [1m[36m (3.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (22.8ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "WhiskeyJacks"], ["created_at", "2016-06-17 19:22:15.672741"], ["updated_at", "2016-06-17 19:22:15.672741"]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
