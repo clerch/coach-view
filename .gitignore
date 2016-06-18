@@ -7,4 +7,5 @@ node_modules
 /db/*.sqlite3-journal
 .DS_Store
 public/assets
-log
+client_secrets.json
+log/development.log
