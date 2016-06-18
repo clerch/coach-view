@@ -5,6 +5,8 @@
 @import './components/navbar';
 @import './components/resource-list';
 @import './components/right-panel';
+@import './components/markdown-editor';
+@import './components/drop-zone';
 
 body {
   background-color: $main-bg-color;
