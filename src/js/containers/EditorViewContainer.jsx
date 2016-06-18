@@ -12,6 +12,7 @@ export default class EditorViewContainer extends React.Component {
         <FileDropContainer/>
         <MarkdownEditorContainer/>
         <ResourceList/>
+        
       </div>
     );
   }

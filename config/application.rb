@@ -10,6 +10,12 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 
+#these are required to use the google calendar api
+require 'google/apis/calendar_v3'
+require 'google/api_client/client_secrets'
+require 'json'
+
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
