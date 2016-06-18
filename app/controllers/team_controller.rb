@@ -23,6 +23,8 @@ class TeamController < ApplicationController
 
     @data = get_team_schedule(@players)
 
+    puts @data
+
     render :json => @data
 
   end
@@ -67,7 +69,8 @@ class TeamController < ApplicationController
       client_opts = {"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
       "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
-      "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], 
+      "client_secret"=>nil, 
+      "scope"=>["https://www.googleapis.com/auth/calendar"], 
       "state"=>nil, 
       "code"=>nil, 
       "redirect_uri"=>"http://localhost:3000/sessions/create", 

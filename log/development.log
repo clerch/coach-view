@@ -11292,3 +11292,363 @@ ArgumentError (Missing authorization code.):
   Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
   Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (437.5ms)
+
+
+Started GET "/team/1" for ::1 at 2016-06-18 13:38:50 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (5.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (4.8ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (6.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."team_id" = $1 AND "users"."coach" = $2[0m  [["team_id", 1], ["coach", "f"]]
+Sending HTTP get https://www.googleapis.com/calendar/v3/calendars/coachapp.player%40gmail.com/events?
+Caught error Missing authorization code.
+Error - #<ArgumentError: Missing authorization code.>
+
+Completed 500 Internal Server Error in 321ms (ActiveRecord: 46.8ms)
+
+ArgumentError (Missing authorization code.):
+  app/controllers/team_controller.rb:95:in `fetch_events_list'
+  app/controllers/team_controller.rb:52:in `get_user_events'
+  app/controllers/team_controller.rb:40:in `block in get_team_schedule'
+  app/controllers/team_controller.rb:36:in `get_team_schedule'
+  app/controllers/team_controller.rb:24:in `show'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.8ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (195.1ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (183.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (432.4ms)
+
+
+Started GET "/team/2" for ::1 at 2016-06-18 13:40:00 -0700
+Processing by TeamController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."team_id" = $1 AND "users"."coach" = $2[0m  [["team_id", 1], ["coach", "f"]]
+Sending HTTP get https://www.googleapis.com/calendar/v3/calendars/coachapp.player%40gmail.com/events?
+Caught error Missing authorization code.
+Error - #<ArgumentError: Missing authorization code.>
+
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.5ms)
+
+ArgumentError (Missing authorization code.):
+  app/controllers/team_controller.rb:95:in `fetch_events_list'
+  app/controllers/team_controller.rb:52:in `get_user_events'
+  app/controllers/team_controller.rb:40:in `block in get_team_schedule'
+  app/controllers/team_controller.rb:36:in `get_team_schedule'
+  app/controllers/team_controller.rb:24:in `show'
+
+
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (188.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (200.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/chrislerch/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (483.0ms)
+  [1m[36m (5056.6ms)[0m  [1mDROP DATABASE IF EXISTS "coach_development"[0m
+  [1m[35m (286.0ms)[0m  DROP DATABASE IF EXISTS "coach-view_test"
+  [1m[36m (4.0ms)[0m  [1mCREATE DATABASE "coach_development" ENCODING = 'unicode'[0m
+  [1m[35m (1204.5ms)[0m  CREATE DATABASE "coach-view_test" ENCODING = 'unicode'
+  [1m[36mSQL (21.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (64.8ms)[0m  DROP TABLE "grades" CASCADE
+  [1m[36m (61.5ms)[0m  [1mCREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "assignment_type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (16.7ms)[0m  DROP TABLE "resources" CASCADE
+  [1m[36m (39.7ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (6.5ms)[0m  DROP TABLE "teams" CASCADE
+  [1m[36m (14.2ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (8.8ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (21.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "calendar_id" character varying) [0m
+  [1m[35m (3.8ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (54.3ms)[0m  CREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "assignment_type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (13.3ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (21.8ms)[0m  CREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (19.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "calendar_id" character varying) [0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (4.9ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.9ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160617203952')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160616221946')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160616222210')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160616222421')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160616222513')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (3.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "9ln223vl0na91ldt43bpvkbfus@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "tuj4rmqq3qet5as2r8p8n7ttvo@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "kpm9t1e4bekkq4s4qjfo5fuj8s@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "5h27sjqm8tiqh89stc6fjd3a0s@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "es850bov5ebci9hm80hfl5i688@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "hbioporg68e78gvhqk57bc2ed0@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "ojgp6p9sabsj9tbpnvui30r5sg@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "uaatl1s69n8qd9sb4e72crjjv0@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "9qn9be450gq7hdjd7q2k9bvkgs@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "tgijbtj32eem3k47csuaqa0sng@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "RazerSharks"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "HippoHerd"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8.1ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Math"], ["assignment_type", "Assignment"], ["grade", 78], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "Physics"], ["assignment_type", "Midterm"], ["grade", 56], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 3], ["course", "Science"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["course", "French"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 5], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 6], ["course", "Music"], ["assignment_type", "Midterm"], ["grade", 35], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 7], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["course", "Science"], ["assignment_type", "Midterm"], ["grade", 99], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 2], ["course", "Calculus"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["course", "Math"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 2], ["course", "History"], ["assignment_type", "Final"], ["grade", 33], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "early morning run"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "100 pushups"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 3], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 3], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (350.0ms)[0m  [1mDROP DATABASE IF EXISTS "coach_development"[0m
+  [1m[35m (157.8ms)[0m  DROP DATABASE IF EXISTS "coach-view_test"
+  [1m[36m (1028.6ms)[0m  [1mCREATE DATABASE "coach_development" ENCODING = 'unicode'[0m
+  [1m[35m (672.1ms)[0m  CREATE DATABASE "coach-view_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (24.9ms)[0m  CREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "assignment_type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (17.1ms)[0m  [1mCREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (10.1ms)[0m  CREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (10.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "calendar_id" character varying) [0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (4.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160617203952')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160616221946')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160616222210')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160616222421')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160616222513')[0m
+  [1m[35mSQL (2.1ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (27.1ms)[0m  [1mCREATE TABLE "grades" ("id" serial primary key, "user_id" integer, "course" character varying, "assignment_type" character varying, "grade" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (19.9ms)[0m  CREATE TABLE "resources" ("id" serial primary key, "team_id" integer, "resource_type" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "team_id" integer, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "access_token" character varying, "refresh_token" character varying, "token_expiry_date" date, "coach" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "calendar_id" character varying) 
+  [1m[36m (11.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (4.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160617203952')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160616221946')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160616222210')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160616222421')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160616222513')
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player1"], ["last_name", "burns"], ["email", "player1@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "9ln223vl0na91ldt43bpvkbfus@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player2"], ["last_name", "burns"], ["email", "player2@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "tuj4rmqq3qet5as2r8p8n7ttvo@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player3"], ["last_name", "burns"], ["email", "player3@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "kpm9t1e4bekkq4s4qjfo5fuj8s@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "t"], ["first_name", "player4"], ["last_name", "burns"], ["email", "player4@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "5h27sjqm8tiqh89stc6fjd3a0s@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player5"], ["last_name", "burns"], ["email", "player5@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "es850bov5ebci9hm80hfl5i688@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player6"], ["last_name", "burns"], ["email", "player6@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "hbioporg68e78gvhqk57bc2ed0@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player7"], ["last_name", "burns"], ["email", "player7@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "ojgp6p9sabsj9tbpnvui30r5sg@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player8"], ["last_name", "burns"], ["email", "player8@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "uaatl1s69n8qd9sb4e72crjjv0@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["team_id", 1], ["coach", "f"], ["first_name", "player9"], ["last_name", "burns"], ["email", "player9@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "9qn9be450gq7hdjd7q2k9bvkgs@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("team_id", "coach", "first_name", "last_name", "email", "password", "access_token", "calendar_id", "refresh_token", "token_expiry_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["team_id", 1], ["coach", "f"], ["first_name", "player10"], ["last_name", "burns"], ["email", "player10@example.com"], ["password", "12345"], ["access_token", "askj35895kjadf"], ["calendar_id", "tgijbtj32eem3k47csuaqa0sng@group.calendar.google.com"], ["refresh_token", "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE"], ["token_expiry_date", "2016-06-28"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "RazerSharks"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HippoHerd"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["course", "Math"], ["assignment_type", "Assignment"], ["grade", 78], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 2], ["course", "Physics"], ["assignment_type", "Midterm"], ["grade", 56], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 3], ["course", "Science"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 4], ["course", "French"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 5], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 6], ["course", "Music"], ["assignment_type", "Midterm"], ["grade", 35], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 7], ["course", "Geography"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Science"], ["assignment_type", "Midterm"], ["grade", 99], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "Calculus"], ["assignment_type", "Final"], ["grade", 81], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["course", "Math"], ["assignment_type", "Midterm"], ["grade", 44], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "grades" ("user_id", "course", "assignment_type", "grade", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["course", "History"], ["assignment_type", "Final"], ["grade", 33], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "workout schedule"], ["content", "early morning run"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "100 pushups"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 1], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 2], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 2], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["team_id", 3], ["resource_type", "training schedule"], ["content", "swim 1000m"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 3], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-18 00:00:00.000000"], ["updated_at", "2016-06-18 00:00:00.000000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
