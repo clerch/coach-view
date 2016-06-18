@@ -1,3 +1,9 @@
+require 'google/apis/calendar_v3'
+require 'google/api_client/client_secrets'
+require 'json'
+
+
+
 class TeamController < ApplicationController
 
 
@@ -10,36 +16,55 @@ class TeamController < ApplicationController
 
     # res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
     # res.header('Access-Control-Allow-Methods', 'GET');
-    @team = Team.find(params[:id])
+    @team = Team.find(1) #params[:id]
     @resources = @team.resources.order(updated_at: :asc)
     @players = @team.users.where(coach: false)
     @coach = @team.users.where(coach: true)
 
-    @data = []
-
-    @players.each do |player|
-      data << {
-        name: @player.name,
-        id: @player.id
-      }
-    end
+    @data = get_team_schedule(@players)
 
     render :json => @data
 
   end
 
-  def create_google_auth
-    @team = Team.find(1)
-    @resources = @team.resources.order(updated_at: :asc)
-    @players = @team.users.where(coach: false)
-    @coach = @team.users.where(coach: true)
+  def get_team_schedule(players)
+
+    data = []
+
+    players.each do |player|
+      data << {
+        name: player.first_name,
+        id: player.id,
+        events: get_user_events(player)
+      }
+    end
+    
+    return data
+
+  end
+
+  def get_user_events(player)
 
     player_events = []
+    calendar = @players[0][:calendar_id] #hard coded needs to change.
+    events_list = fetch_events_list(calendar)
 
-    calendar = @players[0][:calendar_id]
-    # puts "************** calendar id: #{calendar}"
+    events_list.items.each do |event|
+      temp = {
+        start: event.start.date_time,
+        finish: event.end.date_time
+      }
+      player_events << temp
+    end
 
-    client_opts = {"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
+    return player_events
+
+  end
+
+
+  def fetch_events_list(calendar)
+  
+      client_opts = {"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
       "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
       "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], 
@@ -65,7 +90,7 @@ class TeamController < ApplicationController
     service.client_options.application_name = 'Ryan testing Google Calendar API'
     service.authorization = auth_client
 
-    list_events = service.list_events(
+    events_list = service.list_events(
       calendar, 
       always_include_email: nil, 
       i_cal_uid: nil, 
@@ -88,21 +113,8 @@ class TeamController < ApplicationController
       user_ip: nil, 
       options: nil
       )
-    # puts "*********** item 1: #{list_events.items[0].start.date_time}"
 
-    list_events.items.each do |event|
-      temp = {
-        start: event.start.date_time,
-        finish: event.end.date_time
-      }
-      player_events << temp
-    end
-
-    puts "*************** player_events: #{player_events}"
-
-  end
-
-
-
+    return events_list
+  end  
 
 end
