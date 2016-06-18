@@ -1,7 +1,3 @@
-require 'google/apis/calendar_v3'
-require 'google/api_client/client_secrets'
-require 'json'
-
 class TeamController < ApplicationController
 
 
@@ -41,9 +37,28 @@ class TeamController < ApplicationController
     player_events = []
 
     calendar = @players[0][:calendar_id]
-    puts "************** calendar id: #{calendar}"
+    # puts "************** calendar id: #{calendar}"
 
-    client_opts = {"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", "client_id"=>"1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com", "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], "state"=>nil, "code"=>nil, "redirect_uri"=>"http://localhost:3000/sessions/create", "username"=>nil, "password"=>nil, "issuer"=>nil, "audience"=>nil, "person"=>nil, "expiry"=>60, "expires_at"=>1466211285, "signing_key"=>nil, "refresh_token"=>nil, "access_token"=>"ya29.CjAEA7YngxJckxCrRIEdNCokZgh028kPvQZODZ3i70vhi7woaKsg1iILePvy0fv5W0Y", "id_token"=>nil, "extension_parameters"=>{}}
+    client_opts = {"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
+      "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
+      "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
+      "client_secret"=>nil, "scope"=>["https://www.googleapis.com/auth/calendar"], 
+      "state"=>nil, 
+      "code"=>nil, 
+      "redirect_uri"=>"http://localhost:3000/sessions/create", 
+      "username"=>nil, 
+      "password"=>nil, 
+      "issuer"=>nil, 
+      "audience"=>nil, 
+      "person"=>nil, 
+      "expiry"=>60, 
+      "expires_at"=>1466211285, 
+      "signing_key"=>nil, 
+      "refresh_token"=>nil, 
+      "access_token"=>"ya29.CjAEA7YngxJckxCrRIEdNCokZgh028kPvQZODZ3i70vhi7woaKsg1iILePvy0fv5W0Y", 
+      "id_token"=>nil, 
+      "extension_parameters"=>{}}
+
     auth_client = Signet::OAuth2::Client.new(client_opts)
     service = Google::Apis::CalendarV3::CalendarService.new
 
