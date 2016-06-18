@@ -1,9 +1,3 @@
-require 'google/apis/calendar_v3'
-require 'google/api_client/client_secrets'
-require 'json'
-
-
-
 class TeamController < ApplicationController
 
 
@@ -13,9 +7,6 @@ class TeamController < ApplicationController
   end
 
   def show
-
-    # res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
-    # res.header('Access-Control-Allow-Methods', 'GET');
     @team = Team.find(1) #params[:id] - hard coded
     @resources = @team.resources.order(updated_at: :asc)
     @players = @team.users.where(coach: false)
@@ -49,7 +40,7 @@ class TeamController < ApplicationController
 
     player_events = []
     calendar = player.calendar_id 
-    events_list = fetch_events_list(calendar)
+    events_list = fetch_events_list(player)
 
     events_list.items.each do |event|
       temp = {
@@ -64,37 +55,48 @@ class TeamController < ApplicationController
   end
 
 
-  def fetch_events_list(calendar)
-  
-      client_opts = {"authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
+  def fetch_events_list(player)
+    client_opts = {"web"=>{
+      "authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
       "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
-      "client_secret"=>nil, 
-      "scope"=>["https://www.googleapis.com/auth/calendar"], 
-      "state"=>nil, 
-      "code"=>nil, 
-      "redirect_uri"=>"http://localhost:3000/sessions/create", 
-      "username"=>nil, 
-      "password"=>nil, 
-      "issuer"=>nil, 
-      "audience"=>nil, 
-      "person"=>nil, 
-      "expiry"=>60, 
-      "expires_at"=>1466211285, 
-      "signing_key"=>nil, 
-      "refresh_token"=>nil, 
-      "access_token"=>"ya29.CjAEA7YngxJckxCrRIEdNCokZgh028kPvQZODZ3i70vhi7woaKsg1iILePvy0fv5W0Y", 
-      "id_token"=>nil, 
-      "extension_parameters"=>{}}
+      "client_secret"=>ENV['GOOGLE_API_CLIENT_SECRET'], 
+      "scope"=>["https://www.googleapis.com/auth/calendar"],
+       "state"=>nil, 
+       "code"=>nil, 
+       "redirect_uri"=>nil, 
+       "username"=>nil, 
+       "password"=>nil, 
+       "issuer"=>nil, 
+       "audience"=>nil, 
+       "person"=>nil, 
+       "expiry"=>60, 
+       "expires_at"=>1466196261, 
+       "signing_key"=>nil, 
+       "refresh_token"=>nil, 
+       "access_token"=>nil, 
+       "id_token"=>nil, 
+       "extension_parameters"=>{}}
+      }
+      
 
-    auth_client = Signet::OAuth2::Client.new(client_opts)
+      client_secrets = Google::APIClient::ClientSecrets.new(client_opts)
+
+      # Build an authorization object from the client secrets.
+      # authorization is a Client object
+      auth_client = client_secrets.to_authorization
+      auth_client.update_token!(
+        # :access_token => player.access_token,
+        :refresh_token => player.refresh_token
+      )
+
+    # auth_client = Signet::OAuth2::Client.new(client_opts)
     service = Google::Apis::CalendarV3::CalendarService.new
-
     service.client_options.application_name = 'Ryan testing Google Calendar API'
     service.authorization = auth_client
 
     events_list = service.list_events(
-      calendar, 
+      player.calendar_id, 
       always_include_email: nil, 
       i_cal_uid: nil, 
       max_attendees: nil, 
@@ -115,7 +117,7 @@ class TeamController < ApplicationController
       quota_user: nil, 
       user_ip: nil, 
       options: nil
-      )
+    )
 
     return events_list
   end  
