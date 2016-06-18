@@ -10243,3 +10243,10 @@ Processing by Rails::WelcomeController#index as HTML
   Rendered /var/lib/gems/2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
 Completed 200 OK in 24ms (Views: 11.5ms | ActiveRecord: 0.0ms)
 >>>>>>> include_google
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 17:57:12 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 25ms (Views: 14.3ms | ActiveRecord: 0.0ms)
