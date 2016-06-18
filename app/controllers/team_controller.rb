@@ -16,7 +16,7 @@ class TeamController < ApplicationController
 
     # res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
     # res.header('Access-Control-Allow-Methods', 'GET');
-    @team = Team.find(1) #params[:id]
+    @team = Team.find(1) #params[:id] - hard coded
     @resources = @team.resources.order(updated_at: :asc)
     @players = @team.users.where(coach: false)
     @coach = @team.users.where(coach: true)
@@ -46,7 +46,7 @@ class TeamController < ApplicationController
   def get_user_events(player)
 
     player_events = []
-    calendar = @players[0][:calendar_id] #hard coded needs to change.
+    calendar = player.calendar_id 
     events_list = fetch_events_list(calendar)
 
     events_list.items.each do |event|
