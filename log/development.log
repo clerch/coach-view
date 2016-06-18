@@ -1137,3 +1137,10 @@ ORDER BY c.conname
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "resources" ("team_id", "resource_type", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["team_id", 3], ["resource_type", "training schedule"], ["content", "lunges"], ["created_at", "2016-06-17 00:00:00.000000"], ["updated_at", "2016-06-17 00:00:00.000000"]]
   [1m[35m (0.5ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-17 17:47:54 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
+Completed 200 OK in 25ms (Views: 11.9ms | ActiveRecord: 0.0ms)
