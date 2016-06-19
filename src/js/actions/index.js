@@ -60,3 +60,16 @@ export function toggleDailyWeekly() {
     type: 'TOGGLE_DAILY_WEEKLY'
   }
 }
+export function settingsVisible(bool) {
+  return {
+    type: 'SETTINGS_VISIBLE',
+    value: bool
+  }
+}
+export function setSeason(start, end) {
+  return {
+    type: 'SET_SEASON',
+    start: start,
+    end: end
+  }
+}
