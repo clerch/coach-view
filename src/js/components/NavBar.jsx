@@ -6,15 +6,8 @@ export default class NavBar extends React.Component {
     return(
       <nav
         className="navBar"
-      >Coach View
-      <TeamSettingsButton
-        className="teamSettingsButton"
-        showSettings={
-          function() {
-            alert('show settings')
-          }
-        }
-      />
+      >
+      <TeamSettingsButton/>
       </nav>
     )
   }
