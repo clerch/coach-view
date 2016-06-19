@@ -22,7 +22,9 @@ class Calendar extends React.Component {
           defaultDate={new Date("2016/06/20")}
           onSelectEvent={event => console.log(event.start)}
           onSelectSlot={function(slotInfo) {
-            this.props.dispatch(addTeamEvent(slotInfo))
+            if (this.props.teamEventsVisible) {
+              this.props.dispatch(addTeamEvent(slotInfo,this.props.addEventType))
+            }
           }.bind(this)}
           defaultView='week'
           views={['month','week','day']}
@@ -34,21 +36,14 @@ class Calendar extends React.Component {
   }
 }
 
-// // TEMPORARY
-// var googleEvents = gEvents.map((x) => {
-//   return {
-//     start: new Date(x.start),
-//     end: new Date(x.end),
-//     player: parseInt(x.player)
-//   }
-// });
-
 function mapStateToProps(state) {
   return {
-    events: state.team.visibleEvents.team.concat(state.team.visibleEvents.player)
+    events: state.team.visibleEvents.team.concat(state.team.visibleEvents.player),
+    addEventType: state.team.addEventType,
+    teamEventsVisible: state.team.teamEventsVisible
   }
 }
 
 export default connect(
-  mapStateToProps, null
+  mapStateToProps
 )(Calendar)
