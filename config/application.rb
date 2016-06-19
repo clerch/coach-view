@@ -43,9 +43,16 @@ module CoachView
     config.active_record.raise_in_transactional_callbacks = true
 
     #Allows CORS for webpack
-    config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Request-Method' => '*'
-    }
+    config.middleware.insert_before 0, "Rack::Cors" do
+        allow do
+            origins '*'
+
+            resource '/cors', :headers => :any, :methods => [:post], :credentials => true, :max_age => 0
+
+
+            resource '*', :headers => :any, :methods => [:get, :post, :put, :options, :delete, :patch, :head], :max_age => 0, expose: ['ETag']
+        end
+      end
+    end
   end
 end
