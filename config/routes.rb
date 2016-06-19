@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
 
-  resources :team
+  resources :team do 
+    resources :resources, only: [:new, :create, :edit, :delete]
+  end
 
-  resources :users
+  resources :users, only: [:new, :create, :destroy]
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   
 
