@@ -5,12 +5,11 @@ export function showPlayerSchedule(id) {
   }
 }
 
-export function addTeamEvent(event) {
+export function addTeamEvent(event,eventType) {
   var newEvent = {
     start: event.start,
     end: event.end,
-    desc: "TITS",
-    title: "TEAM_EVENT"
+    title: eventType
   }
   return {
     type: 'ADD_TEAM_EVENT',
@@ -46,5 +45,31 @@ export function toggleTeamEvents() {
 export function togglePlayerEvents() {
   return {
     type: 'TOGGLE_PLAYER_EVENTS'
+  }
+}
+
+export function setAddEventType(eventType) {
+  return {
+    type: 'SET_ADD_EVENT_TYPE',
+    eventType: eventType
+  }
+}
+
+export function toggleDailyWeekly() {
+  return {
+    type: 'TOGGLE_DAILY_WEEKLY'
+  }
+}
+export function settingsVisible(bool) {
+  return {
+    type: 'SETTINGS_VISIBLE',
+    value: bool
+  }
+}
+export function setSeason(start, end) {
+  return {
+    type: 'SET_SEASON',
+    start: start,
+    end: end
   }
 }

@@ -1,13 +1,12 @@
 import React from 'react'
-import classNames from 'classnames'
 
-export default class CalendarControlButton extends React.Component {
+export default class EventTypeSelectorButton extends React.Component {
   render() {
 
     return(
       <div
         className={this.props.className}
-        onClick={this.props.toggleEvents}
+        onClick={this.props.setEventType}
       >{this.props.children}
       </div>
     )

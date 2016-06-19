@@ -1,3 +1,4 @@
+import { processEvent } from './helpers.js'
 import gEvents from '../../../test_data/google_events.json';
 
 var googleEvents = gEvents.map((x) => {
@@ -17,7 +18,14 @@ const initialState = {
     team: [],
     player: []
   },
-  playerList: []
+  playerList: [],
+  addEventType: 'PRACTICE_EVENT',
+  season: {
+    start: new Date("2016/04/20"),
+    end: new Date("2016/08/20")
+  },
+  dailyWeekly: 'daily',
+  settingsVisible: false
 }
 
 export default function team(state = initialState, action) {
@@ -40,11 +48,12 @@ export default function team(state = initialState, action) {
         }
       })
     case 'ADD_TEAM_EVENT':
+    var events = processEvent(action.event,state.dailyWeekly,state.season)
       return Object.assign({}, state, {
-        teamEvents: state.teamEvents.concat(action.event),
+        teamEvents: state.teamEvents.concat(events),
         visibleEvents: {
           team: state.teamEventsVisible === true
-            ? state.teamEvents.concat(action.event)
+            ? state.teamEvents.concat(events)
             : [],
           player: state.visibleEvents.player
         }
@@ -80,6 +89,25 @@ export default function team(state = initialState, action) {
     case 'CLEAR_PLAYERS':
       return Object.assign({}, state, {
         playerList: []
+      })
+    case 'SET_ADD_EVENT_TYPE':
+      return Object.assign({}, state, {
+        addEventType: action.eventType
+      })
+    case 'TOGGLE_DAILY_WEEKLY':
+      return Object.assign({}, state, {
+        dailyWeekly: state.dailyWeekly === 'daily' ? 'weekly' : 'daily'
+      })
+    case 'SETTINGS_VISIBLE':
+      return Object.assign({}, state, {
+        settingsVisible: action.value
+      })
+    case 'SET_SEASON':
+      return Object.assign({}, state, {
+        season: {
+          start: action.start === null ? state.season.start : action.start,
+          end: action.end === null ? state.season.end : action.end
+        }
       })
       default:
         return state

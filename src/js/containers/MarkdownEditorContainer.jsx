@@ -4,10 +4,11 @@ import MarkdownEditor from 'react-markdown-editor';
 export default class MarkdownEditorContainer extends React.Component {
   render() {
     return(
-      <div class="markdown-editor">
+      <div
+      className="md-editor-textarea">
       <MarkdownEditor.MarkdownEditor
         initialContent="Type here..."
-        iconsSet= "font-awesome"
+        iconsSet="font-awesome"
       />
       </div>
     )

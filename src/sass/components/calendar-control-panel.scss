@@ -1,9 +1,39 @@
 .calendarControlButton {
+}
+
+.calendarControlButton:active {
+  background-color:#bbf1bb;
+}
+
+.displayTogglePanel {
+  background-color:$box-background-one;
+  box-shadow: $shadow-1;
+  height:70px;
+  position:relative;
+  vertical-align:top;
+  width: 300px;
+}
+
+.eventControlPanel {
+  margin-top: 15px;
+  width:300px;
+  background-color:$box-background-one;
+  box-shadow: $shadow-1;
+}
+
+.smallEventControl {
+  position:relative;
+  display:inline-block;
+  height:70px;
+  width: 300px * 0.25;
+}
+
+.bigEventControl {
   box-sizing:border-box;
   background-color:$box-background-one;
   display:inline-block;
-  height:100px;
-  line-height:100px;
+  height:70px;
+  line-height:70px;
   vertical-align: middle;
   position:relative;
   -webkit-user-select: none;
@@ -13,16 +43,31 @@
   font-weight:200;
   font-size:18px;
 }
-
-.calendarControlButton:active {
-  background-color:#bbf1bb;
+.eventTypeControlPanel {
+  width:150px;
+  display:inline-block;
+  vertical-align: top;
 }
+.otherEventControlPanel {
+  width:150px;
+  display:inline-block;
+  vertical-align: top;
+}
+.gameEventToggle {
+  background-color:#e6e6e6;
+}
+.practiceEventToggle {
+  background-color:#a3efa3;
+}
+.workoutEventToggle {
+  background-color:#a3efa3;
+}
+.meetingEventToggle {
+  background-color:#e6e6e6;
+}
+.dailyWeeklyEventToggle {
 
-.calendarControlPanel {
-  background-color:$box-background-one;
-  box-shadow: $shadow-3;
-  height:100px;
-  position:relative;
-  vertical-align:top;
-  width: 300px;
+}
+.commitButton {
+  background-color:#FF4136;
 }
