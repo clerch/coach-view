@@ -14,6 +14,8 @@ class TeamController < ApplicationController
 
     @data = get_team_schedule(@players)
 
+    puts @data
+
     render :json => @data
 
   end

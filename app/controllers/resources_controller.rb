@@ -10,7 +10,7 @@ class ResourceController < ApplicationController
 
 
   def show
-
+    
   end
 
 
