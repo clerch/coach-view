@@ -47,12 +47,8 @@ module CoachView
         allow do
             origins '*'
 
-            resource '/cors', :headers => :any, :methods => [:post], :credentials => true, :max_age => 0
-
-
             resource '*', :headers => :any, :methods => [:get, :post, :put, :options, :delete, :patch, :head], :max_age => 0, expose: ['ETag']
-        end
-      end
     end
   end
+end
 end
