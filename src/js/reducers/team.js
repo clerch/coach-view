@@ -24,13 +24,14 @@ const initialState = {
     start: new Date("2016/04/20"),
     end: new Date("2016/08/20")
   },
-  dailyWeekly: 'daily'
+  dailyWeekly: 'daily',
+  settingsVisible: false
 }
 
 export default function team(state = initialState, action) {
   switch(action.type) {
     case 'SHOW_PLAYER_SCHEDULE':
-    console.log(state.dailyWeekly)
+    console.log(state)
 
     var visiblePlayers;
     if (state.playerEventsVisible === true) {
@@ -96,6 +97,17 @@ export default function team(state = initialState, action) {
     case 'TOGGLE_DAILY_WEEKLY':
       return Object.assign({}, state, {
         dailyWeekly: state.dailyWeekly === 'daily' ? 'weekly' : 'daily'
+      })
+    case 'SETTINGS_VISIBLE':
+      return Object.assign({}, state, {
+        settingsVisible: action.value
+      })
+    case 'SET_SEASON':
+      return Object.assign({}, state, {
+        season: {
+          start: action.start === null ? state.season.start : action.start,
+          end: action.end === null ? state.season.end : action.end
+        }
       })
       default:
         return state
