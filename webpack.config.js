@@ -33,6 +33,10 @@ var config = {
       loader: "style-loader!css-loader"
     },
     {
+      test: /\material-ui-table-edit\/index\.jsx$/,
+      loader: "jsx-loader"
+    },
+    {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('css!sass')
     },
