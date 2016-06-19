@@ -7,6 +7,7 @@ import { Router, Route, Link, hashHistory } from 'react-router'
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import TeamViewContainer from './containers/TeamViewContainer.jsx'
 import EditorViewContainer from './containers/EditorViewContainer.jsx'
+import PlayerViewContainer from './containers/PlayerViewContainer.jsx'
 
 
 
@@ -24,6 +25,7 @@ ReactDOM.render((
       <Route path="/" component={TeamViewContainer}>
       </Route>
       <Route path="/editor" component={EditorViewContainer} />
+      <Route path="/player" component={PlayerViewContainer} />
     </Router>
   </Provider>
 ), document.getElementById('root'))
