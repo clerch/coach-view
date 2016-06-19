@@ -1,13 +1,11 @@
 import React from 'react'
-import classNames from 'classnames'
 
-export default class CalendarControlButton extends React.Component {
+export default class TeamSettingsButton extends React.Component {
   render() {
-
     return(
       <div
         className={this.props.className}
-        onClick={this.props.toggleEvents}
+        onClick={this.props.showSettings}
       >{this.props.children}
       </div>
     )

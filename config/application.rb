@@ -10,6 +10,12 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 
+#these are required to use the google calendar api
+require 'google/apis/calendar_v3'
+require 'google/api_client/client_secrets'
+require 'json'
+
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -35,5 +41,11 @@ module CoachView
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    #Allows CORS for webpack
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Request-Method' => '*'
+    }
   end
 end

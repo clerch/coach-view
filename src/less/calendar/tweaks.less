@@ -4,7 +4,7 @@
   font-weight:200;
   background-color: @calendar-bg-color;
   padding: 15px;
-  box-shadow: @shadow-3;
+  box-shadow: @shadow-1;
 }
 // events and mouse event creation
 .rbc-event, .rbc-slot-selection {
@@ -33,13 +33,28 @@
 }
 // buttons
 .rbc-btn-group button {
-  box-shadow: @shadow-2;
+  box-shadow: @shadow-1;
 }
 
 .rbc-time-header .rbc-row:first-child {
   background-color: @btn-bg;
 }
-.rbc-event[title*="TEAM_EVENT"] {
-  background-color: grey;
+.rbc-event[title*="GAME_EVENT"] {
+  background-color: orange;
   z-index:99;
+}
+.rbc-event[title*="PRACTICE_EVENT"] {
+  background-color: red;
+  z-index:99;
+}
+.rbc-event[title*="MEETING_EVENT"] {
+  background-color: green;
+  z-index:99;
+}
+.rbc-event[title*="WORKOUT_EVENT"] {
+  background-color: blue;
+  z-index:99;
+}
+.rbc-event[title*="WEEKLY_"] {
+  border: 2px dashed @good-green;
 }
