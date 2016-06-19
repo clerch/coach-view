@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
   
 
-  resources :team
+  resources :cors
+  match '/', :to => proc {|env| [200, {'Content-Type' => 'text/plain'}, ["Hello world"]] },
+             :via => [:get, :post, :put, :delete, :options, :head, :patch]
 
-  resources :users
+
+  resources :team do 
+    resources :resources, only: [:new, :create, :show, :edit, :delete]
+  end
+
+  resources :users, only: [:new, :create, :destroy]
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   
 
