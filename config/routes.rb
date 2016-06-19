@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+# get 'profiles/donors/:id', :to => 'profiles#donor_show'
+  get 'team/:id/events', :to=> 'team#index_events'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

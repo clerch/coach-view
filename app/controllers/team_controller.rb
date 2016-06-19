@@ -4,22 +4,77 @@ class TeamController < ApplicationController
 
   end
 
-  def cal_index
+######## move to events_controller eventually
+  def index_events
+    @team = Team.find(1) #params[:id] - hard coded
+    @coach = @team.users.where(coach: true)[0]
+    team_events = []
 
+    events_list = fetch_all_events(@coach)
+    events_list.items.each do |event|
+      temp = {
+        start: event.start.date_time,
+        finish: event.end.date_time
+      }
+      team_events << temp
+    end
 
+    data = {
+        name: @coach.first_name,
+        id: @coach.id,
+        events: team_events
+    }
+
+    puts data
+
+    render :json => data
 
   end
 
+  def create_team_event
 
+  end
 
+  def fetch_all_events(coach)
 
+    client_opts = {"web"=>{
+      "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
+      "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
+      "client_secret"=>ENV['GOOGLE_API_CLIENT_SECRET'], 
+      "scope"=>["https://www.googleapis.com/auth/calendar"]
+      }
+    }
 
+      client_secrets = Google::APIClient::ClientSecrets.new(client_opts)
 
+      # Build an authorization object from the client secrets.
+      # authorization is a Client object
+      auth_client = client_secrets.to_authorization
+      auth_client.update_token!(
+        # :access_token => coach.access_token,
+        :refresh_token => coach.refresh_token
+      )
 
+    # auth_client = Signet::OAuth2::Client.new(client_opts)
+    service = Google::Apis::CalendarV3::CalendarService.new
+    service.client_options.application_name = 'Ryan testing Google Calendar API'
+    service.authorization = auth_client
 
+    events_list = service.list_events(
+      coach.calendar_id,
+      max_results: nil, 
+      single_events: nil, 
+      time_max: nil, 
+      time_min: nil, 
+      time_zone: nil, 
+      options: nil
+    )
 
+    events_list
 
+  end
 
+  ############## end of move to events_controller eventually
 
   def show
     @team = Team.find(1) #params[:id] - hard coded
@@ -47,7 +102,7 @@ class TeamController < ApplicationController
       }
     end
     
-    return data
+    data
 
   end
 
@@ -65,14 +120,13 @@ class TeamController < ApplicationController
       player_events << temp
     end
 
-    return player_events
+    player_events
 
   end
 
 
   def fetch_events_list(player)
     client_opts = {"web"=>{
-      # "authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
       "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
       "client_secret"=>ENV['GOOGLE_API_CLIENT_SECRET'], 
@@ -97,16 +151,16 @@ class TeamController < ApplicationController
     service.authorization = auth_client
 
     events_list = service.list_events(
-      player.calendar_id
-      # max_results: nil, 
-      # single_events: nil, 
-      # time_max: nil, 
-      # time_min: nil, 
-      # time_zone: nil, 
-      # options: nil
+      player.calendar_id,
+      max_results: nil, 
+      single_events: nil, 
+      time_max: nil, 
+      time_min: nil, 
+      time_zone: nil, 
+      options: nil
     )
 
-    return events_list
+    events_list
   end  
 
 end
