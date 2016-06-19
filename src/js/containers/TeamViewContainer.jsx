@@ -7,6 +7,16 @@ import NavBarContainer from '../containers/NavBarContainer.jsx';
 import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx'
 
 export default class TeamViewContainer extends React.Component {
+  componentWillMount() {
+    fetch('http://localhost:3000/team/1', {method: 'GET'})
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(players) {
+        console.log(players)
+      }.bind(this))
+  }
+
   render () {
     return(
       <div>
