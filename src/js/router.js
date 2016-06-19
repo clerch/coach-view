@@ -9,6 +9,7 @@ import TeamViewContainer from './containers/TeamViewContainer.jsx'
 import EditorViewContainer from './containers/EditorViewContainer.jsx'
 
 
+
 const Message = React.createClass({
   render() {
     return <h3>Message</h3>
