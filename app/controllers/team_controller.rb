@@ -1,10 +1,25 @@
 class TeamController < ApplicationController
 
-
   def index
+
+  end
+
+  def cal_index
+
 
 
   end
+
+
+
+
+
+
+
+
+
+
+
 
   def show
     @team = Team.find(1) #params[:id] - hard coded
@@ -57,27 +72,13 @@ class TeamController < ApplicationController
 
   def fetch_events_list(player)
     client_opts = {"web"=>{
-      "authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
+      # "authorization_uri"=>"https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=1072088737400-0mufodco7n7utcg21v8mis7s407t5atq.apps.googleusercontent.com&redirect_uri=http://localhost:3000/sessions/create&response_type=code&scope=https://www.googleapis.com/auth/calendar", 
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
       "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
       "client_secret"=>ENV['GOOGLE_API_CLIENT_SECRET'], 
-      "scope"=>["https://www.googleapis.com/auth/calendar"],
-       "state"=>nil, 
-       "code"=>nil, 
-       "redirect_uri"=>nil, 
-       "username"=>nil, 
-       "password"=>nil, 
-       "issuer"=>nil, 
-       "audience"=>nil, 
-       "person"=>nil, 
-       "expiry"=>60, 
-       "expires_at"=>1466196261, 
-       "signing_key"=>nil, 
-       "refresh_token"=>nil, 
-       "access_token"=>nil, 
-       "id_token"=>nil, 
-       "extension_parameters"=>{}}
+      "scope"=>["https://www.googleapis.com/auth/calendar"]
       }
+    }
       
 
       client_secrets = Google::APIClient::ClientSecrets.new(client_opts)
@@ -96,27 +97,13 @@ class TeamController < ApplicationController
     service.authorization = auth_client
 
     events_list = service.list_events(
-      player.calendar_id, 
-      always_include_email: nil, 
-      i_cal_uid: nil, 
-      max_attendees: nil, 
-      max_results: nil, 
-      order_by: nil, 
-      page_token: nil, 
-      private_extended_property: nil, 
-      q: nil, shared_extended_property: nil, 
-      show_deleted: nil, 
-      show_hidden_invitations: nil, 
-      single_events: nil, 
-      sync_token: nil, 
-      time_max: nil, 
-      time_min: nil, 
-      time_zone: nil, 
-      updated_min: nil, 
-      fields: nil, 
-      quota_user: nil, 
-      user_ip: nil, 
-      options: nil
+      player.calendar_id
+      # max_results: nil, 
+      # single_events: nil, 
+      # time_max: nil, 
+      # time_min: nil, 
+      # time_zone: nil, 
+      # options: nil
     )
 
     return events_list
