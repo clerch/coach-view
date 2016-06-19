@@ -9,6 +9,7 @@ export function addTeamEvent(event,eventType) {
   var newEvent = {
     start: event.start,
     end: event.end,
+    slots: event.slots,
     title: eventType
   }
   return {
@@ -71,5 +72,11 @@ export function setSeason(start, end) {
     type: 'SET_SEASON',
     start: start,
     end: end
+  }
+}
+
+export function calculateMissedEvents() {
+  return {
+    type: 'CALCULATE_MISSED_EVENTS'
   }
 }
