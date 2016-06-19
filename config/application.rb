@@ -15,7 +15,6 @@ require 'google/apis/calendar_v3'
 require 'google/api_client/client_secrets'
 require 'json'
 
-
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -55,4 +54,3 @@ module CoachView
       end
     end
   end
-end
