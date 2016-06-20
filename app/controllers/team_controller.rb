@@ -5,7 +5,7 @@ class TeamController < ApplicationController
   end
 
 ######## move to events_controller eventually
-  def index_events
+  def events
     @team = Team.find(1) #params[:id] - hard coded
     @coach = @team.users.where(coach: true)[0]
     team_events = []
@@ -31,12 +31,46 @@ class TeamController < ApplicationController
 
   end
 
-  def create_team_event
+  def create_event
+    @team = Team.find(1) #params[:id] - hard coded
+    @coach = @team.users.where(coach: true)[0]
+
+    service = get_service(@coach)
+
+    service.insert_event(
+      @coach.calendar_id, 
+      event_object = nil, 
+      max_attendees: nil, 
+      send_notifications: nil, 
+      supports_attachments: nil, 
+      ields: nil, 
+      quota_user: nil, 
+      user_ip: nil, 
+      options: nil, 
+      &block
+    )
 
   end
 
   def fetch_all_events(coach)
 
+    service = get_service(coach)
+
+    events_list = service.list_events(
+      coach.calendar_id,
+      max_results: nil, 
+      single_events: nil, 
+      time_max: nil, 
+      time_min: nil, 
+      time_zone: nil, 
+      options: nil
+    )
+
+    events_list
+
+  end
+
+  def get_service(coach)
     client_opts = {"web"=>{
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
       "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
@@ -59,19 +93,7 @@ class TeamController < ApplicationController
     service = Google::Apis::CalendarV3::CalendarService.new
     service.client_options.application_name = 'Ryan testing Google Calendar API'
     service.authorization = auth_client
-
-    events_list = service.list_events(
-      coach.calendar_id,
-      max_results: nil, 
-      single_events: nil, 
-      time_max: nil, 
-      time_min: nil, 
-      time_zone: nil, 
-      options: nil
-    )
-
-    events_list
-
+    return service
   end
 
   ############## end of move to events_controller eventually
