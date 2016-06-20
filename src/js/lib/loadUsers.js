@@ -5,6 +5,7 @@ export default function loadUsers(team_id) {
     })
     .then(function(players) {
       this.props.setPlayerMissedKeys(players)
+      this.props.setPlayerCount(players.filter((x) => x.coach === false).length)
       for (var player of players) {
         getUserData.bind(this)(player)
       }
