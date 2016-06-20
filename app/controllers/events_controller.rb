@@ -21,25 +21,6 @@ class EventsController < ApplicationController
 
   end
 
-  def fetch_all_events(coach)
-
-    service = get_service(coach)
-
-    events_list = service.list_events(
-      coach.calendar_id,
-      max_results: nil, 
-      single_events: nil, 
-      time_max: nil, 
-      time_min: nil, 
-      time_zone: nil, 
-      options: nil
-    )
-
-    events_list
-
-  end
-
-
   def get_service(coach)
     client_opts = {"web"=>{
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
