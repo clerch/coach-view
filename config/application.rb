@@ -14,7 +14,8 @@ require "sprockets/railtie"
 require 'google/apis/calendar_v3'
 require 'google/api_client/client_secrets'
 require 'json'
-
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 # require "rails/test_unit/railtie"
 

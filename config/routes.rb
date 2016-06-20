@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
 
-  resources :team do 
+
+  resources :team do
     resources :resources, only: [:new, :create, :show, :edit, :delete]
   end
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,7 +3,7 @@ import BigCalendar from 'react-big-calendar';
 import gEvents from '../../../test_data/google_events.json';
 import moment from 'moment';
 import { connect } from 'react-redux'
-import { addTeamEvent, getPlayerCalendars, toggleTeamEvents, togglePlayerEvents } from '../actions/index'
+import { addTeamEvent, getPlayerCalendars, toggleTeamEvents, togglePlayerEvents, calculateMissedEvents } from '../actions/index'
 
 class Calendar extends React.Component {
   componentWillMount() {
@@ -24,6 +24,7 @@ class Calendar extends React.Component {
           onSelectSlot={function(slotInfo) {
             if (this.props.teamEventsVisible) {
               this.props.dispatch(addTeamEvent(slotInfo,this.props.addEventType))
+              this.props.dispatch(calculateMissedEvents())
             }
           }.bind(this)}
           defaultView='week'
