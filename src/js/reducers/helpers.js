@@ -25,14 +25,29 @@ export function processEvent(event,dailyWeekly,season) {
 
 export function calculateMissed(playerEvents,teamEvents) {
   var missed = {
-    total: teamEvents.map((x) => x.slots.length - 1)
-    .reduce((prev,cur) => prev + cur),
+    total: teamEvents.length,
     player: {}
   }
-
-  for (var i = 0; i < playerEvents.length; i++) {
-    missed.player[playerEvents[i].player] = 0
-    
+  for (var tEvent of teamEvents) {
+    var missingEvent = {}
+    for (var pEvent of playerEvents) {
+      // create key for player with count 0 if they don't exist yet
+      if (!missed.player[pEvent.player]) {
+        missed.player[pEvent.player] = 0
+      }
+      if (eventsOverlap(pEvent,tEvent) && !missingEvent[pEvent.player]) {
+        console.log(pEvent, tEvent)
+        missed.player[pEvent.player]++
+        missingEvent[pEvent.player] = true
+      }
+    }
   }
-  console.log(missed)
+  return missed
+}
+
+function eventsOverlap(pEvent,tEvent) {
+  return (tEvent.start.getTime() < pEvent.end.getTime()  &&
+          pEvent.start.getTime() < tEvent.end.getTime()) ||
+         (pEvent.start.getTime() < tEvent.end.getTime()  &&
+          tEvent.start.getTime() < pEvent.end.getTime())
 }

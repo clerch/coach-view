@@ -18,25 +18,6 @@ export function addTeamEvent(event,eventType) {
   }
 }
 
-export function getPlayers(players) {
-  return {
-    type: 'GET_PLAYERS',
-    players: players
-  }
-}
-
-export function getPlayerCalendars() {
-  return {
-    type: 'GET_PLAYER_CALENDARS',
-  }
-}
-
-export function clearPlayers() {
-  return {
-    type: 'CLEAR_PLAYERS'
-  }
-}
-
 export function toggleTeamEvents() {
   return {
     type: 'TOGGLE_TEAM_EVENTS'
@@ -78,5 +59,20 @@ export function setSeason(start, end) {
 export function calculateMissedEvents() {
   return {
     type: 'CALCULATE_MISSED_EVENTS'
+  }
+}
+
+export function setPlayerMissedKeys(players) {
+  var playerArray = players.map((x) => x.id)
+  return {
+    type: 'SET_PLAYER_MISSED_KEYS',
+    player_ids: playerArray
+  }
+}
+
+export function loadPlayerData(player) {
+  return {
+    type: 'LOAD_PLAYER_DATA',
+    data: player
   }
 }

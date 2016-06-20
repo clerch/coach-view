@@ -1,19 +1,10 @@
 import { processEvent, calculateMissed } from './helpers.js'
-import gEvents from '../../../test_data/google_events.json';
-
-var googleEvents = gEvents.map((x) => {
-  return {
-    start: new Date(x.start),
-    end: new Date(x.end),
-    player: parseInt(x.player)
-  }
-});
 
 const initialState = {
   playerEvents: [],
   teamEvents: [],
-  playerEventsVisible: false,
-  teamEventsVisible: false,
+  playerEventsVisible: true,
+  teamEventsVisible: true,
   visibleEvents: {
     team: [],
     player: []
@@ -26,13 +17,16 @@ const initialState = {
   },
   dailyWeekly: 'daily',
   settingsVisible: false,
-  playerMissedEvents: {}
+  playerMissedEvents: {
+    total: 0,
+    player: {}
+  }
 }
 
 export default function team(state = initialState, action) {
   switch(action.type) {
     case 'SHOW_PLAYER_SCHEDULE':
-    console.log(state)
+    console.log(state.playerMissedEvents)
 
     var visiblePlayers;
     if (state.playerEventsVisible === true) {
@@ -79,18 +73,6 @@ export default function team(state = initialState, action) {
         },
         playerEventsVisible: !state.playerEventsVisible
       })
-    case 'GET_PLAYERS':
-      return Object.assign({}, state, {
-        playerList: state.playerList.concat(action.players)
-      })
-    case 'GET_PLAYER_CALENDARS':
-      return Object.assign({}, state, {
-        playerEvents: googleEvents
-      })
-    case 'CLEAR_PLAYERS':
-      return Object.assign({}, state, {
-        playerList: []
-      })
     case 'SET_ADD_EVENT_TYPE':
       return Object.assign({}, state, {
         addEventType: action.eventType
@@ -114,6 +96,28 @@ export default function team(state = initialState, action) {
       return Object.assign({}, state, {
         playerMissedEvents: calculateMissed(state.playerEvents,state.teamEvents)
       })
+    case 'LOAD_PLAYER_DATA':
+      var events = action.data.events.map((x) => {
+        return {
+          start: new Date(x.start),
+          end: new Date(x.end),
+          player: action.data.id
+        }
+      })
+      var player = {
+        id: action.data.id,
+        calId: action.data.id,
+        name: action.data.name
+      }
+      return Object.assign({}, state, {
+        playerEvents: state.playerEvents.concat(events),
+        playerList: state.playerList.concat(player),
+        visibleEvents: {
+          player: state.visibleEvents.player.concat(events),
+          team: state.visibleEvents.team
+        }
+      })
+
       default:
         return state
   }
