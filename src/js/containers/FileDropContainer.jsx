@@ -8,7 +8,7 @@ export default class FileDropContainer extends React.Component {
     <div
     className="dropzone-content">
       <Dropzone onDrop={this.onDrop}>
-        <p>Drop files here</p>
+        <p>Click to add, or drag and drop files here</p>
       </Dropzone>
     </div>
     )

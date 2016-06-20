@@ -1,0 +1,29 @@
+.grade-table {
+  box-shadow: $shadow-1;
+  width: 40%;
+    background-color:white;
+  margin-left:$component-spacing;
+  padding:5px;
+  font-weight:50;
+  font-size:10px;
+  position: relative;
+  float: left;
+}
+
+.player-calendar {
+  width: 650px;
+  display:inline-block;
+  position:relative;
+  vertical-align:top;
+  margin-right:$component-spacing;
+  float: right;
+}
+
+.rightPanel-player {
+  display:inline-block;
+  margin-right:$component-spacing;
+  position:relative;
+  vertical-align:bottom;
+  float: right;
+}
+

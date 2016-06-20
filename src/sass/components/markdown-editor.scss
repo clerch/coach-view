@@ -1,12 +1,36 @@
 .md-editor-textarea {
-    background-color: white;
-    position: relative;
-    padding: 4px;
-    margin: 4px;
-    width: 70%;
-    border: 0px;
-    min-height: 125px;
+  width: 900px;
+  display:inline-block;
+  position:relative;
+  vertical-align:top;
+  margin-right:$component-spacing;
+  float: right;
+  min-height: 400px;
 }
 
+.resourceListContainerEditor {
+  width:300px;
+  max-height:280px;
+  background-color: $box-background-one;
+  position:relative;
+  margin:15px auto;
+  box-shadow: $shadow-1;
+  margin-left:$component-spacing;
+  float: left;
+  vertical-align:top;
+}
 
+.dropzone-content {
+  width: 50px;
+  float: left;
+  box-shadow: $shadow-1;
+  margin-left:$component-spacing;
+}
 
+.dropzone-content div {
+  width: 10px;
+}
+
+.markdown-buttons {
+  float: right;
+}
