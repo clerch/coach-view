@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :grades
 
   def full_name
-    "#{firstname} #{lastname}"
+    "#{first_name} #{last_name}"
   end
 
 
