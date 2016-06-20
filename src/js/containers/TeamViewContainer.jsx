@@ -8,7 +8,7 @@ import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx'
 
 export default class TeamViewContainer extends React.Component {
   componentWillMount() {
-    fetch('http://localhost:3000/user/1/calendar', {method: 'GET'})
+    fetch('http://localhost:3000/team/1', {method: 'GET'})
       .then(function(res) {
         return res.json();
       })
