@@ -14,7 +14,8 @@ require "sprockets/railtie"
 require 'google/apis/calendar_v3'
 require 'google/api_client/client_secrets'
 require 'json'
-
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 # require "rails/test_unit/railtie"
 
@@ -43,9 +44,12 @@ module CoachView
     config.active_record.raise_in_transactional_callbacks = true
 
     #Allows CORS for webpack
-    config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Request-Method' => '*'
-    }
+    config.middleware.insert_before 0, "Rack::Cors" do
+        allow do
+            origins '*'
+
+            resource '*', :headers => :any, :methods => [:get, :post, :put, :options, :delete, :patch, :head], :max_age => 0, expose: ['ETag']
+    end
   end
+end
 end

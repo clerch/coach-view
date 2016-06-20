@@ -22,3 +22,17 @@ export function processEvent(event,dailyWeekly,season) {
     return events
   }
 }
+
+export function calculateMissed(playerEvents,teamEvents) {
+  var missed = {
+    total: teamEvents.map((x) => x.slots.length - 1)
+    .reduce((prev,cur) => prev + cur),
+    player: {}
+  }
+
+  for (var i = 0; i < playerEvents.length; i++) {
+    missed.player[playerEvents[i].player] = 0
+    
+  }
+  console.log(missed)
+}

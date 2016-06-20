@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  
 
-  resources :team
 
-  resources :users
+  resources :team do
+    resources :resources, only: [:new, :create, :show, :edit, :delete]
+  end
 
-  
+  resources :user, only: [:new, :create, :destroy] do 
+    resource :calendar, only: [:show]
+  end
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

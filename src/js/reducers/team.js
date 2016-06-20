@@ -1,4 +1,4 @@
-import { processEvent } from './helpers.js'
+import { processEvent, calculateMissed } from './helpers.js'
 import gEvents from '../../../test_data/google_events.json';
 
 var googleEvents = gEvents.map((x) => {
@@ -25,7 +25,8 @@ const initialState = {
     end: new Date("2016/08/20")
   },
   dailyWeekly: 'daily',
-  settingsVisible: false
+  settingsVisible: false,
+  playerMissedEvents: {}
 }
 
 export default function team(state = initialState, action) {
@@ -108,6 +109,10 @@ export default function team(state = initialState, action) {
           start: action.start === null ? state.season.start : action.start,
           end: action.end === null ? state.season.end : action.end
         }
+      })
+    case 'CALCULATE_MISSED_EVENTS':
+      return Object.assign({}, state, {
+        playerMissedEvents: calculateMissed(state.playerEvents,state.teamEvents)
       })
       default:
         return state
