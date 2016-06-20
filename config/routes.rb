@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :team do
     resources :resources, only: [:index, :new, :create, :show, :edit, :delete]
     resources :events, only: [:index, :new, :create, :show, :edit, :delete]
+    resources :players, only: [:show]
   end
 
   resources :user, only: [:new, :create, :destroy] do 
