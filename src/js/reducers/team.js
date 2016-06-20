@@ -10,6 +10,8 @@ const initialState = {
     player: []
   },
   playerList: [],
+  playerCount: 0,
+  playerLoadProgress: 0,
   addEventType: 'PRACTICE_EVENT',
   season: {
     start: new Date("2016/04/20"),
@@ -26,7 +28,7 @@ const initialState = {
 export default function team(state = initialState, action) {
   switch(action.type) {
     case 'SHOW_PLAYER_SCHEDULE':
-    console.log(state.playerMissedEvents)
+    console.log(state)
 
     var visiblePlayers;
     if (state.playerEventsVisible === true) {
@@ -52,6 +54,10 @@ export default function team(state = initialState, action) {
             : [],
           player: state.visibleEvents.player
         }
+      })
+    case 'SET_PLAYER_COUNT':
+      return Object.assign({}, state, {
+        playerCount: action.count
       })
     case 'TOGGLE_TEAM_EVENTS':
       return Object.assign({}, state, {

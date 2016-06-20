@@ -76,3 +76,10 @@ export function loadPlayerData(player) {
     data: player
   }
 }
+
+export function setPlayerCount(count) {
+  return {
+    type: 'SET_PLAYER_COUNT',
+    count: count
+  }
+}
