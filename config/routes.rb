@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
 
   resources :team do
-    resources :resource, only: [:index, :new, :create, :show, :edit, :delete]
+    resources :resources, only: [:index, :new, :create, :show, :edit, :delete]
+    resources :events, only: [:index, :new, :create, :show, :edit, :delete]
   end
 
   resources :user, only: [:new, :create, :destroy] do 

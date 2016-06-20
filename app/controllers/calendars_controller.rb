@@ -5,7 +5,7 @@ class CalendarsController < ApplicationController
   def show
     @player = User.find(params[:user_id])
     data = {
-      name: @player.first_name,
+      name: @player.full_name,
       id: @player.id,
       events: []
     }
