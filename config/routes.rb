@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :team do
-    resources :resources, only: [:new, :create, :show, :edit, :delete]
+    resources :resource, only: [:index, :new, :create, :show, :edit, :delete]
   end
 
   resources :user, only: [:new, :create, :destroy] do 
