@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  
+
+
 
   resources :team do
-    get 'events'
-    post 'create_event'
+    resources :resource, only: [:index, :new, :create, :show, :edit, :delete]
   end
 
-  resources :users
+  resources :user, only: [:new, :create, :destroy] do 
+    resource :calendar, only: [:show]
+  end
 
-# get 'profiles/donors/:id', :to => 'profiles#donor_show'
-  # get 'team/:id/events', :to=> 'team#index_events'
-  
+  resources :sessions, only: [:new, :create, :destroy]
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

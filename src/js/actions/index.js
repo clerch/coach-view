@@ -9,6 +9,7 @@ export function addTeamEvent(event,eventType) {
   var newEvent = {
     start: event.start,
     end: event.end,
+    slots: event.slots,
     title: eventType
   }
   return {
@@ -58,5 +59,24 @@ export function setAddEventType(eventType) {
 export function toggleDailyWeekly() {
   return {
     type: 'TOGGLE_DAILY_WEEKLY'
+  }
+}
+export function settingsVisible(bool) {
+  return {
+    type: 'SETTINGS_VISIBLE',
+    value: bool
+  }
+}
+export function setSeason(start, end) {
+  return {
+    type: 'SET_SEASON',
+    start: start,
+    end: end
+  }
+}
+
+export function calculateMissedEvents() {
+  return {
+    type: 'CALCULATE_MISSED_EVENTS'
   }
 }
