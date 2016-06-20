@@ -1,7 +1,5 @@
 class CalendarsController < ApplicationController
 
-
-
   def show
     @player = User.find(params[:user_id])
     data = {
