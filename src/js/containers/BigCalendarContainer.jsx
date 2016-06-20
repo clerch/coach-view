@@ -3,14 +3,11 @@ import BigCalendar from 'react-big-calendar';
 import gEvents from '../../../test_data/google_events.json';
 import moment from 'moment';
 import { connect } from 'react-redux'
-import { addTeamEvent, getPlayerCalendars, toggleTeamEvents, togglePlayerEvents, calculateMissedEvents } from '../actions/index'
+import { addTeamEvent, toggleTeamEvents, togglePlayerEvents, calculateMissedEvents } from '../actions/index'
 
 class Calendar extends React.Component {
   componentWillMount() {
     BigCalendar.momentLocalizer(moment);
-    this.props.dispatch(getPlayerCalendars())
-    this.props.dispatch(toggleTeamEvents())
-    this.props.dispatch(togglePlayerEvents())
   }
 
   render() {
