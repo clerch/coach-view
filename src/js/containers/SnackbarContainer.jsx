@@ -1,42 +1,45 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Snackbar from 'material-ui/Snackbar';
-import RaisedButton from 'material-ui/RaisedButton';
+import { hideSnackbar } from '../actions/index'
 
-export default class SnackbarContainer extends React.Component {
+class SnackbarContainer extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     open: false,
-  //   };
-  // }
+  constructor(props) {
+    super(props)
+  }
 
-  // handleTouchTap = () => {
-  //   this.setState({
-  //     open: true,
-  //   });
-  // };
-
-  // handleRequestClose = () => {
-  //   this.setState({
-  //     open: false,
-  //   });
-  // };
+  handleRequestClose() {
+    this.props.hideSnackbar()
+  };
 
   render() {
     return (
-      <div>
-        <RaisedButton
-          onTouchTap={this.handleTouchTap}
-          label="Add to my calendar"
-        />
         <Snackbar
-          open={this.state.open}
-          message="Event added to your calendar"
+          open={this.props.snackbarVisible}
+          message={this.props.snackbarMessage}
           autoHideDuration={4000}
-          onRequestClose={this.handleRequestClose}
+          onRequestClose={this.handleRequestClose.bind(this)}
         />
-      </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    snackbarVisible: state.team.snackbarVisible,
+    snackbarMessage: state.team.snackbarMessage
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    hideSnackbar: () => dispatch(hideSnackbar())
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SnackbarContainer)
+

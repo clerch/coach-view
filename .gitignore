@@ -5,6 +5,7 @@ node_modules
 /db/*.sqlite3
 /db/*.sqlite
 /db/*.sqlite3-journal
+/tmp/pids/server.pid
 .DS_Store
 public/assets
 client_secrets.json
