@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
     events_list.items.each do |event|
       temp = {
+        id: event.id,
         start: event.start.date_time,
         end: event.end.date_time
       }
