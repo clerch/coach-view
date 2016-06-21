@@ -23,7 +23,9 @@ const initialState = {
     total: 0,
     player: {}
   },
-  resources: []
+  resources: [],
+  resourceWindowOpen: false,
+  currentResource: null
 }
 
 export default function team(state = initialState, action) {
@@ -127,6 +129,16 @@ export default function team(state = initialState, action) {
       case 'LOAD_TEAM_RESOURCES':
         return Object.assign({}, state, {
           resources: action.resources
+        })
+      case 'OPEN_RESOURCE_WINDOW':
+        return Object.assign({}, state, {
+          resourceWindowOpen: true,
+          currentResource: action.resource
+        })
+      case 'CLOSE_RESOURCE_WINDOW':
+        return Object.assign({}, state, {
+          resourceWindowOpen: false,
+          currentResource: null
         })
       default:
         return state

@@ -8,7 +8,6 @@ class Team < ActiveRecord::Base
 
     self.users.select(:id,:coach)
 
-
   end
     
 end

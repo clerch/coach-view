@@ -90,3 +90,14 @@ export function loadTeamResources(resources) {
     resources: resources
   }
 }
+export function openResourceWindow(resource) {
+  return {
+    type: 'OPEN_RESOURCE_WINDOW',
+    resource: resource
+  }
+}
+export function closeResourceWindow() {
+  return {
+    type: 'CLOSE_RESOURCE_WINDOW'
+  }
+}

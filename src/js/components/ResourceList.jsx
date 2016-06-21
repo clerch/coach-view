@@ -8,8 +8,9 @@ class ResourceList extends React.Component {
       return (
         <Resource
           key={resource.id}
+          data={resource}
         >
-        {resource.resource_type}
+        {resource.name}
         </Resource>
       )
     }.bind(this))
@@ -25,9 +26,11 @@ class ResourceList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    resources: state.team.resources
+    resources: state.team.resources,
   }
 }
+
+
 
 export default connect(
   mapStateToProps

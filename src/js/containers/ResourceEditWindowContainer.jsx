@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { settingsVisible, setSeason } from '../actions/index'
+import { settingsVisible, setSeason, closeResourceWindow } from '../actions/index'
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -16,27 +16,36 @@ class ResourceEditWindowContainer extends React.Component {
 
 }
 
-  handleClose() {
-    // this.props.hideSettings();
-  };
+  handleCancel() {
+    this.props.closeResourceWindow()
+  }
+
+  handleSave() {
+      
+  }
 
   render() {
     const actions = [
       <FlatButton
-        label="Done"
+        label="Cancel"
+        primary={false}
+        onTouchTap={() => this.handleCancel()}
+      />,
+      <FlatButton
+        label="Save"
         primary={true}
-        onTouchTap={this.handleClose.bind(this)}
+        onTouchTap={() => this.handleClose()}
       />
     ];
 
     return (
       <div>
         <Dialog
-          title="Edit Resource"
+          title={this.props.resourceTitle}
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
-          open={true}
+          open={this.props.resourceWindowOpen}
         >
         <MarkdownEditorContainer />
         </Dialog>
@@ -48,12 +57,14 @@ class ResourceEditWindowContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    resourceWindowOpen: state.team.resourceWindowOpen,
+    resourceTitle: state.team.currentResource ? state.team.currentResource.name : 'New Resource'
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-
+    closeResourceWindow: () => dispatch(closeResourceWindow())
   }
 }
 

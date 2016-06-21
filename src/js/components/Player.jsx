@@ -19,11 +19,7 @@ class Player extends React.Component {
       <li
         className="playerName"
         style={{backgroundColor:bgColor}}
-        onMouseEnter={
-          function() {
-            this.props.dispatch(showPlayerSchedule(this.props.calId))
-          }.bind(this)
-        }
+        onMouseEnter={() =>  this.props.showPlayerSchedule(this.props.calId)}
       >
         {this.props.children} {this.props.missedPercentage}
       </li>
@@ -36,6 +32,13 @@ function mapStateToProps(state, ownProps) {
     missedPercentage: Math.round(100 * (state.team.playerMissedEvents.player[ownProps.calId] / state.team.playerMissedEvents.total))
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    showPlayerSchedule: (calId) => dispatch(showPlayerSchedule(calId))
+  }
+}
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Player)

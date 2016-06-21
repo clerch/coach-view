@@ -6,19 +6,44 @@ class EventsController < ApplicationController
 
     service = get_service(@coach)
 
-    service.insert_event(
-      @coach.calendar_id, 
-      event_object = nil, 
-      max_attendees: nil, 
-      send_notifications: nil, 
-      supports_attachments: nil, 
-      ields: nil, 
-      quota_user: nil, 
-      user_ip: nil, 
-      options: nil, 
-      &block
-    )
+    params[:events].each do |event|
+      event = create_event(event[:event_type], event[:start], event[:finish])
+      result = service.insert_event(@coach.calendar_id, event)
+      puts "Event created: #{result.html_link}"
+    end
+  end
 
+  # @params start_time_str, end_time_str
+  def create_event(event_type, start, finish)
+    event = Google::Apis::CalendarV3::Event.new({
+      summary: event_type,
+      # location: '800 Howard St., San Francisco, CA 94103',
+      description: 'A chance to hear more about Google\'s developer products.',
+      start: {
+        date_time: start,
+        time_zone: 'America/Los_Angeles',
+      },
+      end: {
+        date_time: finish,
+        time_zone: 'America/Los_Angeles',
+      },
+      recurrence: [
+        # 'RRULE:FREQ=DAILY;COUNT=2'
+      ],
+      attendees: [
+        # {email: 'lpage@example.com'},
+        # {email: 'sbrin@example.com'},
+      ],
+      reminders: {
+        use_default: true
+        # overrides: [
+        #   {:method => 'email', 'minutes: 24 * 60},
+        #   {:method => 'popup', 'minutes: 10},
+        # ],
+      },
+    })
+
+    event
   end
 
   def get_service(coach)
