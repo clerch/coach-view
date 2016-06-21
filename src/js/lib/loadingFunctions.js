@@ -18,6 +18,7 @@ export function loadResources(team_id) {
       return res.json();
     })
     .then(function(resources) {
+      console.log(resources)
       this.props.loadTeamResources(resources)
     }.bind(this))
 }
