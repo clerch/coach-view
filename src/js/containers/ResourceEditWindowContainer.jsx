@@ -33,6 +33,7 @@ class ResourceEditWindowContainer extends React.Component {
   handleSave() {
     if (this.props.currentResource.id) {
       // update resource array and post to server
+      let resourceIdx = this.props.resources.map((x) => x.id).indexOf(this.props.currentResource.id)
       let newResources = this.props.resources.slice()
       newResources[resourceIdx].content = this.props.currentResource.content
       newResources[resourceIdx].name = this.props.currentResource.name
