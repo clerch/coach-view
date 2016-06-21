@@ -8,6 +8,7 @@ import CalendarControlPanelContainer from '../containers/CalendarControlPanelCon
 import NavBarContainer from '../containers/NavBarContainer.jsx';
 import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx'
 import ResourceEditWindowContainer from '../containers/ResourceEditWindowContainer.jsx'
+import SnackbarContainer from '../containers/SnackbarContainer.jsx'
 import { loadUsers, loadResources } from '../lib/loadingFunctions.js'
 
 class TeamViewContainer extends React.Component {
@@ -29,6 +30,7 @@ class TeamViewContainer extends React.Component {
           <ResourceListContainer />
           <SettingsWindowContainer />
           <ResourceEditWindowContainer />
+          <SnackbarContainer />
         </div>
       </div>
     );
