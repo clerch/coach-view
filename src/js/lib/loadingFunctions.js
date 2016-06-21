@@ -1,4 +1,4 @@
-export default function loadUsers(team_id) {
+export function loadUsers(team_id) {
   fetch('http://localhost:3000/team/' + team_id, {method: 'GET'})
     .then(function(res) {
       return res.json();
@@ -12,6 +12,17 @@ export default function loadUsers(team_id) {
   }.bind(this))
 }
 
+export function loadResources(team_id) {
+  fetch('http://localhost:3000/team/' + team_id + '/resources', {method: 'GET'})
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(resources) {
+      this.props.loadTeamResources(resources)
+    }.bind(this))
+}
+
+// PRIVATE
 function getUserData(player) {
   fetch('http://localhost:3000/user/' + player.id + '/calendar', {method: 'GET'})
   .then(function(res) {

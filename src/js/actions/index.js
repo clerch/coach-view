@@ -83,3 +83,10 @@ export function setPlayerCount(count) {
     count: count
   }
 }
+
+export function loadTeamResources(resources) {
+  return {
+    type: 'LOAD_TEAM_RESOURCES',
+    resources: resources
+  }
+}

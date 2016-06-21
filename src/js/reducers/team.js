@@ -22,7 +22,8 @@ const initialState = {
   playerMissedEvents: {
     total: 0,
     player: {}
-  }
+  },
+  resources: []
 }
 
 export default function team(state = initialState, action) {
@@ -123,7 +124,10 @@ export default function team(state = initialState, action) {
           team: state.visibleEvents.team
         }
       })
-
+      case 'LOAD_TEAM_RESOURCES':
+        return Object.assign({}, state, {
+          resources: action.resources
+        })
       default:
         return state
   }

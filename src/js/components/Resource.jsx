@@ -5,7 +5,7 @@ export default class Resource extends React.Component {
     return(
       <li
         className="resourceItem"
-      >Resource</li>
+      >{this.props.children}</li>
     )
   }
 }

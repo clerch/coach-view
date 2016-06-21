@@ -1,10 +1,9 @@
-class ResourceController < ApplicationController
+class ResourcesController < ApplicationController
 
 
   def index
     @team = Team.find(1) # This is hard coded.
-    @resources = @team.resources.order(updated_at: :asc)  
-
+    @resources = @team.resources.order(updated_at: :asc)
     render :json => @resources
   end
 
@@ -57,7 +56,7 @@ protected
 
   def resource_params
     params.require(:resource).permit(
-    :resource_type, 
+    :resource_type,
     :content,
     :team_id
   )
