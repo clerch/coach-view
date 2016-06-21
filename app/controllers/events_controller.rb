@@ -35,21 +35,7 @@ class EventsController < ApplicationController
       end: {
         date_time: finish,
         time_zone: 'America/Los_Angeles',
-      },
-      recurrence: [
-        # 'RRULE:FREQ=DAILY;COUNT=2'
-      ],
-      attendees: [
-        # {email: 'lpage@example.com'},
-        # {email: 'sbrin@example.com'},
-      ],
-      reminders: {
-        use_default: true
-        # overrides: [
-        #   {:method => 'email', 'minutes: 24 * 60},
-        #   {:method => 'popup', 'minutes: 10},
-        # ],
-      },
+      }
     })
 
     event
