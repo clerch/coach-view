@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
 
   def index
     @team = Team.find(1) # This is hard coded.
-    @resources = @team.resources.order(updated_at: :asc)
+    @resources = @team.resources.order(created_at: :asc)
     render :json => @resources
   end
 
@@ -21,12 +21,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = Resource.new(resource_params)
-
-    if @resource.save
-      redirect_to team_resources_path, notice: "#{resource_type} was successfully added for the team."
-    else
-      render :new
-    end
+    @resource.save
   end
 
   def edit

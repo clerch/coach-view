@@ -4,17 +4,16 @@ Rails.application.routes.draw do
 
   resources :team do
     resources :resources, only: [:index, :new, :create, :show, :edit, :delete]
-    resources :events, only: [:index, :new, :create, :show, :edit, :delete]
-    resources :players, only: [:show]
+    resource :events, only: [:index, :new, :create, :show, :edit, :delete]
   end
 
-  resources :user, only: [:new, :create, :destroy] do 
+  resources :player, only: [:new, :create, :destroy] do 
     resource :calendar, only: [:show]
   end
 
   resources :sessions, only: [:new, :create, :destroy]
 
-
+  resources :notifications
 
 
   # The priority is based upon order of creation: first created -> highest priority.
