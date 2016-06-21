@@ -35,12 +35,11 @@ class ResourcesController < ApplicationController
 
   def update
     @resource = Resource.find(params[:id])
-    @resource.update(resource_params)
-    if @resource.save
-      redirect_to team_resource_path(@resource)
-    else
-      render :edit
-    end
+    @resource = Resource.update(
+      resource_type: params[:resource_type],
+      content: params[:content],
+      name: params[:name]
+    )    
   end
 
 
