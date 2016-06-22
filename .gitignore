@@ -10,3 +10,4 @@ public/assets
 client_secrets.json
 log/development.log
 log/
+tmp/*

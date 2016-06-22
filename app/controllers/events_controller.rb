@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   def create_event(event_type, start, finish)
     event = Google::Apis::CalendarV3::Event.new({
       summary: event_type,
-      # location: '800 Howard St., San Francisco, CA 94103',
+      # location: '800 Howard St., San Frncisco, CA 94103',
       description: 'A chance to hear more about Google\'s developer products.',
       start: {
         date_time: start,

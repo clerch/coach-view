@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'pages/home'
+
   resources :team do
     resources :resources, only: [:index, :new, :create, :show, :edit, :delete]
     resources :events, only: [:index, :new, :create, :show, :edit, :delete]
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'team'
+  root 'pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
