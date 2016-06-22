@@ -6,7 +6,7 @@ import BigCalendarContainer from '../containers/BigCalendarContainer.jsx';
 import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx';
 import GradeListContainer from './GradeListContainer.jsx'
 import SnackbarContainer from '../containers/SnackbarContainer.jsx'
-import { loadUsers, loadResources } from '../lib/loadingFunctions.js'
+import { loadPlayerData } from '../lib/loadingFunctions.js'
 import {Tabs, Tab} from 'material-ui/Tabs';
 import { connect } from 'react-redux'
 import { loadTeamResources } from '../actions/index'
@@ -19,7 +19,7 @@ import ResourceEditWindowContainer from '../containers/ResourceEditWindowContain
 class PlayerViewContainer extends React.Component {
     constructor(props) {
     super(props)
-    loadResources.bind(this)(1)
+    loadPlayerData.bind(this)(1)
   }
   render() {
     return(
@@ -29,7 +29,7 @@ class PlayerViewContainer extends React.Component {
         <div className="grade-table">
           <Tabs>
             <Tab label="Assignments" >
-              <div>      
+              <div>
                 <GradeListContainer/>
               </div>
             </Tab>
