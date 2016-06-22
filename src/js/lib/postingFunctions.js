@@ -20,10 +20,9 @@ export function updateResource(resource) {
   fetch(HOST_NAME + "team/" + resource.team_id + "/resources/" + resource.id, options)
     .then(function(res){
       if (res.ok){
-        console.log('response ok!')
+        return true
       } else {
-        console.log('not ok...')
+        return false
       }
-      console.log(res)
     })
 }
