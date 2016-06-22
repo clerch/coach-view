@@ -25,6 +25,7 @@ skip_before_filter :verify_authenticity_token
   def create
     @resource = Resource.new(resource_params)
     if @resource.save
+      @notification = Notification.new
       render :status => 200, :json => {:id => @resource.id }
     end
   end
