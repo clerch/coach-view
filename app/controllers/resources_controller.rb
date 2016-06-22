@@ -30,11 +30,12 @@ class ResourcesController < ApplicationController
 
   def update
     @resource = Resource.find(params[:id])
-    @resource = Resource.update(
+    @resource.update(
       resource_type: params[:resource_type],
       content: params[:content],
       name: params[:name]
-    )    
+    )
+    render :nothing => true, :status => 200
   end
 
 
