@@ -15,8 +15,8 @@ const initialState = {
   playerLoadProgress: 0,
   addEventType: 'PRACTICE_EVENT',
   season: {
-    start: new Date("2016/04/20"),
-    end: new Date("2016/08/20")
+    start: null,
+    end: null
   },
   dailyWeekly: 'daily',
   settingsVisible: false,

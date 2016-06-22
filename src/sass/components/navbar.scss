@@ -9,10 +9,17 @@
   z-index: 99;
   margin-bottom:30px;
   text-align:center;
-  overflow:visible;
+  overflow:hidden;
 }
 
 .teamSettingsButton {
   float:right;
   position:relative;
+  display: inline-block;
+}
+
+.notificationBadgeContainer {
+  float:right;
+  position:relative;
+  display: inline-block;
 }
