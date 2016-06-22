@@ -1,5 +1,7 @@
+import { HOST_NAME } from './constants'
+
 export function loadUsers(team_id) {
-  fetch('http://localhost:3000/team/' + team_id, {method: 'GET'})
+  fetch(HOST_NAME + 'team/' + team_id, {method: 'GET'})
     .then(function(res) {
       return res.json();
     })
@@ -13,7 +15,7 @@ export function loadUsers(team_id) {
 }
 
 export function loadResources(team_id) {
-  fetch('http://localhost:3000/team/' + team_id + '/resources', {method: 'GET'})
+  fetch(HOST_NAME + 'team/' + team_id + '/resources', {method: 'GET'})
     .then(function(res) {
       return res.json();
     })
@@ -25,7 +27,7 @@ export function loadResources(team_id) {
 
 // PRIVATE
 function getUserData(player) {
-  fetch('http://localhost:3000/user/' + player.id + '/calendar', {method: 'GET'})
+  fetch(HOST_NAME + 'user/' + player.id + '/calendar', {method: 'GET'})
   .then(function(res) {
     return res.json();
   })
