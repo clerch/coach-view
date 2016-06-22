@@ -32,11 +32,16 @@ const initialState = {
     id: null
   },
   snackbarVisible: false,
-  snackbarMessage: ''
+  snackbarMessage: '',
+  playerProfileVisible: false,
+  playerGrades: [],
+  activePlayerGrades: null
 }
 
 export default function team(state = initialState, action) {
   switch(action.type) {
+    case 'RESET_ALL':
+      return Object.assign({}, state, initialState)
     case 'SHOW_PLAYER_SCHEDULE':
     console.log(state)
 
@@ -63,6 +68,14 @@ export default function team(state = initialState, action) {
             ? state.teamEvents.concat(events)
             : [],
           player: state.visibleEvents.player
+        }
+      })
+    case 'LOAD_TEAM_EVENTS':
+      return Object.assign({}, state, {
+        teamEvents: action.events,
+        visibleEvents: {
+          player: state.visibleEvents.player,
+          team: action.events
         }
       })
     case 'SET_PLAYER_COUNT':
@@ -176,6 +189,21 @@ export default function team(state = initialState, action) {
         return Object.assign({}, state, {
           snackbarVisible: false,
           snackbarMessage: ''
+        })
+      case 'SHOW_PLAYER_PROFILE':
+      let activeGrades = state.playerGrades.filter((x) => x.user_id === action.playerId)
+        return Object.assign({}, state, {
+          playerProfileVisible: true,
+          activePlayerGrades: activeGrades
+        })
+      case 'HIDE_PLAYER_PROFILE':
+        return Object.assign({}, state, {
+          playerProfileVisible: false,
+          activePlayerGrades: null
+        })
+      case 'LOAD_PLAYER_GRADES':
+        return Object.assign({}, state, {
+          playerGrades: action.grades
         })
       default:
         return state

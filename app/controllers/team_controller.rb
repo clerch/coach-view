@@ -9,7 +9,7 @@ skip_before_filter :verify_authenticity_token
     data = {
       users: team.show_users,
       resources: team.resources.order(created_at: :desc),
-      grades: team.show_grades,
+      grades: team.show_grades.flatten,
       season_length: {start: team.season_start, end: team.season_end},
       notifications: team.show_coach_notifications
     }
