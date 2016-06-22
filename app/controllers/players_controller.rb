@@ -3,8 +3,8 @@ class PlayersController < ApplicationController
 skip_before_filter :verify_authenticity_token
 
   def show
-    player = User.find(1) #params[:id] - hard coded
-    resources = Resource.find(player.team_id)
+    player = User.find(params[:id]) #params[:id] - hard coded
+    resources = Resource.where(team_id: player.team_id)
 
     coach = User.find_by("team_id = ? AND coach = ?", player.team_id, true)
     coach_calendar = coach.get_user_schedule
