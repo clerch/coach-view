@@ -6,7 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MarkdownEditorContainer from './MarkdownEditorContainer.jsx'
 import TextField from 'material-ui/TextField'
-import { updateResource } from '../lib/postingFunctions'
+import { updateResource, deleteResource, createResource } from '../lib/postingFunctions'
 
 const customContentStyle = {
   width: '1000px',
@@ -27,8 +27,15 @@ class ResourceEditWindowContainer extends React.Component {
     let newResources = this.props.resources.slice()
     let resourceIdx = this.props.resources.map((x) => x.id).indexOf(this.props.currentResource.id)
     newResources.splice(resourceIdx,1)
-    this.props.updateResources(newResources)
-    this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been deleted")
+    deleteResource(this.props.currentResource)
+      .then((res) => {
+        if (res.ok) {
+          this.props.updateResources(newResources)
+          this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been deleted")
+        } else {
+          this.props.showSnackbar("Could not delete resource '" + this.props.currentResource.name + "'")
+        }
+      })
     this.props.closeResourceWindow()
   }
 
@@ -51,12 +58,21 @@ class ResourceEditWindowContainer extends React.Component {
 
     } else {
       // save to resource array and post to server
-      this.props.currentResource.id = new Date().getTime() + this.props.currentResource.name
-      let newResources = this.props.resources.slice()
-      newResources.unshift(this.props.currentResource)
-      console.log(newResources)
-      this.props.updateResources(newResources)
-      this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been created")
+      createResource(this.props.currentResource, this.props.teamId)
+      .then(function(res) {
+        return res.json();
+      })
+      .then((res) => {
+        if (res.id) {
+          this.props.setCurrentResource(null,null,res.id)
+          let newResources = this.props.resources.slice()
+          newResources.unshift(this.props.currentResource)
+          this.props.updateResources(newResources)
+          this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been created")
+        } else {
+          this.props.showSnackbar("Could not create resource '" + this.props.currentResource.name + "'")
+        }
+      })
     }
     this.props.closeResourceWindow()
   }
@@ -120,7 +136,8 @@ function mapStateToProps(state) {
   return {
     resourceWindowOpen: state.team.resourceWindowOpen,
     resources: state.team.resources,
-    currentResource: state.team.currentResource
+    currentResource: state.team.currentResource,
+    teamId: state.team.teamId
   }
 }
 

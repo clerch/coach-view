@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get 'pages/home'
 
   resources :team do
-    resources :resources, only: [:index, :new, :create, :show, :edit, :delete, :update]
-    resource :events, only: [:index, :new, :create, :show, :edit, :delete]
+    resources :resources, only: [:index, :new, :create, :show, :edit, :destroy, :update]
+    resource :events, only: [:index, :new, :create, :show, :edit, :destroy]
   end
 
-  resources :player, only: [:new, :create, :destroy] do 
+  resources :player, only: [:new, :create, :destroy] do
     resource :calendar, only: [:show]
   end
 
