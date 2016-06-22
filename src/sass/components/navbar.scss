@@ -13,7 +13,7 @@
 }
 
 .navBarTitle {
-  float:right;
+  float:left;
   positition: relative;
   margin-left: 10px;
   font-size:25px;
@@ -22,7 +22,7 @@
 }
 
 .teamSettingsButton {
-  float:right;
+  float:left;
   position:relative;
   display: inline-block;
 }
@@ -32,12 +32,12 @@
   position:relative;
   display: inline-block;
   margin-bottom:1rem;
-  margin-right: 1rem;
+  margin-right: 0px;
 }
 
 .notificationBadgeContainer svg {
-  padding-bottom: 1rem;
-  margin-right: 1rem;
+  margin-bottom: 40px;
+  margin-right: 8px;
   
 }
 

@@ -10,7 +10,7 @@ export default class NotificationBadgeContainer extends React.Component {
           className="notificationBadgeContainer"
           badgeContent={10}
           secondary={true}
-          badgeStyle={{top: 16, right: 16}}
+          badgeStyle={{top: 12, right: 12}}
         >
           <NotificationsIcon />
       </Badge>
