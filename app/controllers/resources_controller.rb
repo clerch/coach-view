@@ -5,7 +5,7 @@ skip_before_filter :verify_authenticity_token
 
 
   def index
-    @team = Team.find(1) # This is hard coded.
+    @team = Team.find(params[:id])
     @resources = @team.resources.order(created_at: :asc)
     render :json => @resources
   end
@@ -23,9 +23,18 @@ skip_before_filter :verify_authenticity_token
   end
 
   def create
+
     @resource = Resource.new(resource_params)
     if @resource.save
-      @notification = Notification.new
+      players = User.where("team_id = ? AND coach = ?", params[:team_id], false)
+      players.each do |player|
+        @notification.create(
+          user_id: player.id,
+          notification_text: "The #{params[:name]} resource was posted.",
+          content: "resource",
+          read: false
+        )
+      end
       render :status => 200, :json => {:id => @resource.id }
     end
   end
@@ -38,7 +47,7 @@ skip_before_filter :verify_authenticity_token
     @resource = Resource.find(params[:id])
     @resource.update(
       resource_type: params[:resource_type],
-      content: params[:content],
+      content: resource,
       name: params[:name]
     )
     render :nothing => true, :status => 200
