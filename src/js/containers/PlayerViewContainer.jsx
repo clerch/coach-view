@@ -11,6 +11,8 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import { connect } from 'react-redux'
 import { loadTeamResources } from '../actions/index'
 import ResourceListContainer from '../containers/ResourceListContainer.jsx';
+// import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx'
+import ResourceEditWindowContainer from '../containers/ResourceEditWindowContainer.jsx'
 
 
 
@@ -23,6 +25,7 @@ class PlayerViewContainer extends React.Component {
     return(
       <div>
         <NavBar/>
+
         <div className="grade-table">
           <Tabs>
             <Tab label="Assignments" >
@@ -30,16 +33,20 @@ class PlayerViewContainer extends React.Component {
                 <GradeListContainer/>
               </div>
             </Tab>
+
             <Tab label="Resources" >
-              <div className="resourceListContainer">
-                <ResourceListContainer/>
+              <div className="resourceListContainerPlayer">
+                <ResourceListContainer style={{width: '200%'}}/>
+                <ResourceEditWindowContainer />
               </div>
             </Tab>
-         </Tabs>
-         </div>
+          </Tabs>
+        </div>
+
         <div className="player-calendar">
           <BigCalendarContainer/>
         </div>
+
         <div>
           <SnackbarContainer/>
         </div>
