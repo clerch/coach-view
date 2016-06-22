@@ -11,10 +11,11 @@ export default class NavBar extends React.Component {
       <nav
         className="navBar"
       >
+      <NotificationBadgeContainer />
       <TeamSettingsButton/>
         <div className="navBarTitle">Lineup</div>
-      <NotificationBadgeContainer />
-      <TeamSettingsButton />
+      
+
       </nav>
       <Footer />
       </div>
