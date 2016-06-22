@@ -1,6 +1,7 @@
 import React from 'react';
 import TableEdit from 'material-ui-table-edit'
 import {Tabs, Tab} from 'material-ui/Tabs';
+import ResourceList from '../components/ResourceList.jsx'
 
 const headers = [
   {value: 'Class', type: 'TextField', width: 100},
@@ -64,13 +65,24 @@ const onChange = (row) => {
 export default class GradeListContainer extends React.Component {
   render () {
     return (
-      <div>
-        <TableEdit 
-        onChange={onChange}
-        rows={rows}
-        headerColumns={headers}
-        />
-      </div>   
+    <div className="grade-table">
+      <Tabs>
+        <Tab label="Assignments" >
+          <div>
+            <TableEdit 
+            onChange={onChange}
+            rows={rows}
+            headerColumns={headers}
+            />
+          </div>
+        </Tab>
+          <Tab label="Resources" >
+            <div className="resourceListContainer">
+              <ResourceList/>
+            </div>
+          </Tab>
+      </Tabs>
+    </div> 
     )
   }
 }

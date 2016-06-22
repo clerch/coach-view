@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar.jsx'
 import TableEdit from 'material-ui-table-edit'
 import BigCalendarContainer from '../containers/BigCalendarContainer.jsx';
 import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx';
-import ClassListContainer from './ClassListContainer.jsx'
+import GradeListContainer from './GradeListContainer.jsx'
 import SnackbarContainer from './SnackbarContainer.jsx'
 
 export default class PlayerViewContainer extends React.Component {
@@ -12,7 +12,7 @@ export default class PlayerViewContainer extends React.Component {
     return(
       <div>
         <NavBar/>
-        <ClassListContainer/>
+        <GradeListContainer/>
         <div className="player-calendar">
           <BigCalendarContainer/>
         </div>
