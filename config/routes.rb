@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :players, only: [:new, :create, :destroy, :show] do
     resource :calendar, only: [:show]
+    resources :grades, only: [:index, :create, :show, :destroy]
   end
 
   resources :sessions, only: [:new, :create, :destroy]

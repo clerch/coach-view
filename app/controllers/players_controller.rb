@@ -26,4 +26,21 @@ skip_before_filter :verify_authenticity_token
     render :json => data
 
   end
+
+  def update
+    player = Player.find(params[:id])
+    
+    .update(
+      season_start: params[:season_start],
+      season_end: params[:season_end]
+    )
+    if team.persisted?
+      render :nothing => true, :status => 200
+    else
+      render :nothing => true, :status => 500
+    end
+
+  end
+
+
 end
