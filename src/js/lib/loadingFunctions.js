@@ -18,7 +18,7 @@ export function loadTeamData(team_id) {
 }
 
 export function loadPlayerData(player_id) {
-  fetch(HOST_NAME + 'player/' + player_id, {method: 'GET'})
+  fetch(HOST_NAME + 'players/' + player_id, {method: 'GET'})
     .then(function(res) {
       console.log('hi')
       return res.json();

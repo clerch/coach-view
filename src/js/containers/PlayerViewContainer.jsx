@@ -19,7 +19,7 @@ import ResourceEditWindowContainer from '../containers/ResourceEditWindowContain
 class PlayerViewContainer extends React.Component {
     constructor(props) {
     super(props)
-    loadPlayerData.bind(this)(1)
+    loadPlayerData.bind(this)(2)
   }
   render() {
     return(
