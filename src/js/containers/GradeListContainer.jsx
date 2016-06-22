@@ -65,24 +65,11 @@ const onChange = (row) => {
 export default class GradeListContainer extends React.Component {
   render () {
     return (
-    <div className="grade-table">
-      <Tabs>
-        <Tab label="Assignments" >
-          <div>
-            <TableEdit 
-            onChange={onChange}
-            rows={rows}
-            headerColumns={headers}
-            />
-          </div>
-        </Tab>
-          <Tab label="Resources" >
-            <div className="resourceListContainer">
-              <ResourceList/>
-            </div>
-          </Tab>
-      </Tabs>
-    </div> 
+      <TableEdit 
+      onChange={onChange}
+      rows={rows}
+      headerColumns={headers}
+      />
     )
   }
 }
