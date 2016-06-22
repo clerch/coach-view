@@ -17,12 +17,5 @@ export function updateResource(resource) {
     headers: headers
   }
 
-  fetch(HOST_NAME + "team/" + resource.team_id + "/resources/" + resource.id, options)
-    .then(function(res){
-      if (res.ok){
-        return true
-      } else {
-        return false
-      }
-    })
+    return fetch(HOST_NAME + "team/" + resource.team_id + "/resources/" + resource.id, options)
 }
