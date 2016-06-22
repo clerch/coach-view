@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MarkdownEditorContainer from './MarkdownEditorContainer.jsx'
 import TextField from 'material-ui/TextField'
+import { updateResource } from '../lib/postingFunctions'
 
 const customContentStyle = {
   width: '1000px',
@@ -15,6 +16,7 @@ const customContentStyle = {
 class ResourceEditWindowContainer extends React.Component {
   constructor(props) {
   super(props);
+
 }
 
   handleCancel() {
@@ -26,7 +28,7 @@ class ResourceEditWindowContainer extends React.Component {
     let resourceIdx = this.props.resources.map((x) => x.id).indexOf(this.props.currentResource.id)
     newResources.splice(resourceIdx,1)
     this.props.updateResources(newResources)
-    this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' was deleted")
+    this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been deleted")
     this.props.closeResourceWindow()
   }
 
@@ -38,6 +40,8 @@ class ResourceEditWindowContainer extends React.Component {
       newResources[resourceIdx].content = this.props.currentResource.content
       newResources[resourceIdx].name = this.props.currentResource.name
       this.props.updateResources(newResources)
+      updateResource(this.props.currentResource)
+      this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been saved")
     } else {
       // save to resource array and post to server
       this.props.currentResource.id = new Date().getTime() + this.props.currentResource.name
@@ -45,6 +49,7 @@ class ResourceEditWindowContainer extends React.Component {
       newResources.unshift(this.props.currentResource)
       console.log(newResources)
       this.props.updateResources(newResources)
+      this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been created")
     }
     this.props.closeResourceWindow()
   }
