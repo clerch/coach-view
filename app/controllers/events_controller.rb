@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
     service = get_service(@coach)
 
-    if params[:create].length > 0
+    if params[:create]
       params[:create].each do |event|
         event = create_event(event[:event_type], event[:start], event[:finish])
         result = service.insert_event(@coach.calendar_id, event)
@@ -26,8 +26,6 @@ class EventsController < ApplicationController
   def create_event(event_type, start, finish)
     event = Google::Apis::CalendarV3::Event.new({
       summary: event_type,
-      # location: '800 Howard St., San Frncisco, CA 94103',
-      description: 'A chance to hear more about Google\'s developer products.',
       start: {
         date_time: start,
         time_zone: 'America/Los_Angeles',

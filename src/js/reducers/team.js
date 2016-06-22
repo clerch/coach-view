@@ -1,6 +1,7 @@
 import { processEvent, calculateMissed } from './helpers.js'
 
 const initialState = {
+  teamId: 1,
   playerEvents: [],
   teamEvents: [],
   playerEventsVisible: true,

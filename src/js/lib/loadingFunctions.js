@@ -1,33 +1,25 @@
 import { HOST_NAME } from './constants'
 
-export function loadUsers(team_id) {
+export function loadTeamData(team_id) {
   fetch(HOST_NAME + 'team/' + team_id, {method: 'GET'})
     .then(function(res) {
       return res.json();
     })
-    .then(function(players) {
-      this.props.setPlayerMissedKeys(players)
-      this.props.setPlayerCount(players.filter((x) => x.coach === false).length)
-      for (var player of players) {
-        getUserData.bind(this)(player)
-      }
+    .then(function(data) {
+      console.log(data)
+      this.props.loadTeamResources(data.resources)
+      this.props.setPlayerMissedKeys(data.users)
+      this.props.setPlayerCount(data.users.filter((x) => x.coach === false).length)
+      // for (var player of data.users) {
+      //   getUserData.bind(this)(player)
+      // }
   }.bind(this))
-}
-
-export function loadResources(team_id) {
-  fetch(HOST_NAME + 'team/' + team_id + '/resources', {method: 'GET'})
-    .then(function(res) {
-      return res.json();
-    })
-    .then(function(resources) {
-      console.log(resources)
-      this.props.loadTeamResources(resources)
-    }.bind(this))
 }
 
 // PRIVATE
 function getUserData(player) {
-  fetch(HOST_NAME + 'user/' + player.id + '/calendar', {method: 'GET'})
+  console.log('getplayer')
+  fetch(HOST_NAME + 'player/' + player.id + '/calendar', {method: 'GET'})
   .then(function(res) {
     return res.json();
   })
