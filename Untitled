@@ -1,0 +1,61 @@
+POST calendar
+
+{"create":[{
+         "event_type": "Practice7",
+         "start": "2016-06-20T07:00:00.000-07:00",
+         "finish": "2016-06-20T11:00:00.000-07:00"
+  }],
+  "delete":[{"id": "536uie4b478tqp3d69k8l7coq8"}]
+}
+
+POST notifications
+
+// only a user id
+{"id":1}
+
+
+POST resources
+
+{
+"team_id":1,
+"resource_type":"whatever",
+"content": "whatever",
+"name":"whatever"
+}
+
+PUT resources
+
+{
+"id":1,
+"team_id":1,
+"resource_type":"whatever",
+"content": "whatever",
+"name":"whatever"
+}
+
+POST season length
+
+{
+"team_id":1,
+"start":"2016-10-10 0:0:0",
+"end":"2016-10-10 0:0:0"
+}
+
+
+TEAM VIEW PACKAGE
+
+{
+"notifications":[{notification_text: whatever, created_at: datetime },..........],
+"season_length": {start:date, end:date},
+"resources": {EXISTING_RESOURCE_JSON}
+"players":{EXISTING_PLAYER_JSON},
+"grades":[{user_id: whatever, course: whatever, assignment_type: whatever, grade: whatever, created_at: datetime}......]
+}
+
+PLAYER VIEW PACKAGE
+
+{
+"notifications":[{notification_text: whatever, created_at: datetime },..........],
+"resources": {EXISTING_RESOURCE_JSON}
+"grades":[{course: whatever, assignment_type: whatever, grade: whatever, created_at: datetime}......]
+}
