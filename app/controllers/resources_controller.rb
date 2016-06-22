@@ -3,6 +3,7 @@ class ResourcesController < ApplicationController
 skip_before_filter :verify_authenticity_token
 
 
+
   def index
     @team = Team.find(1) # This is hard coded.
     @resources = @team.resources.order(created_at: :asc)
@@ -23,7 +24,9 @@ skip_before_filter :verify_authenticity_token
 
   def create
     @resource = Resource.new(resource_params)
-    @resource.save
+    if @resource.save
+      render :status => 200, :json => {:id => @resource.id }
+    end
   end
 
   def edit
@@ -44,6 +47,8 @@ skip_before_filter :verify_authenticity_token
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy
+
+    render :nothing => true, :status => 200
   end
 
 
@@ -56,7 +61,6 @@ protected
     :content,
     :team_id,
     :name
-
   )
   end
 

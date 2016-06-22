@@ -6,7 +6,9 @@ class AddResourceButton extends React.Component {
   render() {
     let newResource = {
       name: '',
-      content: ''
+      content: '',
+      resource_type: 'default resource',
+      team_id: this.props.teamId
     }
     return(
       <div
@@ -23,8 +25,12 @@ function mapDispatchToProps(dispatch) {
     openResourceWindow: (resource) => dispatch(openResourceWindow(resource))
   }
 }
-
+function mapStateToProps(state) {
+  return {
+    teamId: state.team.teamId
+  }
+}
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AddResourceButton)

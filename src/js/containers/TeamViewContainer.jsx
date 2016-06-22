@@ -9,13 +9,12 @@ import NavBarContainer from '../containers/NavBarContainer.jsx';
 import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx'
 import ResourceEditWindowContainer from '../containers/ResourceEditWindowContainer.jsx'
 import SnackbarContainer from '../containers/SnackbarContainer.jsx'
-import { loadUsers, loadResources } from '../lib/loadingFunctions.js'
+import { loadTeamData } from '../lib/loadingFunctions.js'
 
 class TeamViewContainer extends React.Component {
   constructor(props) {
     super(props)
-    loadUsers.bind(this)(1)
-    loadResources.bind(this)(1)
+    loadTeamData.bind(this)(1)
   }
   render () {
     return(
