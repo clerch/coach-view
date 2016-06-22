@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { openResourceWindow } from '../actions/index'
+import FlatButton from 'material-ui/FlatButton'
 
 class AddResourceButton extends React.Component {
   render() {
@@ -11,11 +12,13 @@ class AddResourceButton extends React.Component {
       team_id: this.props.teamId
     }
     return(
-      <div
+      <FlatButton
         className="addResourceButton"
         onClick={() => this.props.openResourceWindow(newResource)}
-      >+
-      </div>
+        backgroundColor="#a3efa3"
+        hoverColor="#99d099"
+      >New Resource
+      </FlatButton>
     )
   }
 }

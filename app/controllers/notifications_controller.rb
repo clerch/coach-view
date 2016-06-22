@@ -2,8 +2,19 @@ class NotificationsController < ApplicationController
 
 skip_before_filter :verify_authenticity_token
 
+  def create
+    @notification = Notification.new(notification_params)
+    if @notification.save
+      @notification = Notification.new
+      render :status => 200, :json => {:id => @notification.id }
+    end
+  end
 
+  def new
+    @notification = Notification.new
 
+    render :json => @notification
+  end
 
 
 
@@ -19,7 +30,14 @@ skip_before_filter :verify_authenticity_token
 
 
 
-
+  def notification_params
+    params.require(:resource).permit(
+    :user_id,
+    :notification_text,
+    :content,
+    :read
+  )
+  end
 
 
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resource :events, only: [:index, :new, :create, :show, :edit, :destroy]
   end
 
-  resources :player, only: [:new, :create, :destroy] do
+  resources :players, only: [:new, :create, :destroy, :show] do
     resource :calendar, only: [:show]
   end
 

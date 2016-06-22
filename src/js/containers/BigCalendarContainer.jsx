@@ -10,6 +10,7 @@ class Calendar extends React.Component {
     BigCalendar.momentLocalizer(moment);
   }
 
+
   render() {
     return (
       <div className="mainCalendar" style={{height: 550}}>

@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { settingsVisible, setSeason } from '../actions/index'
+import { settingsVisible, setSeason, showSnackbar } from '../actions/index'
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import SnackbarContainer from './SnackbarContainer.jsx'
 import SeasonRangePickerContainer from './SeasonRangePickerContainer.jsx'
+import { updateSeason } from '../lib/postingFunctions'
 
 const customContentStyle = {
   width: '30%',
@@ -15,13 +17,29 @@ class SettingsWindowContainer extends React.Component {
   super(props);
 
   this.state = {
-    startDate: null,
-    endDate: null
+    startDate: this.props.season.start,
+    endDate: this.props.season.end
   };
 }
 
+  componentWillReceiveProps(){
+    this.setState({
+        startDate: this.props.season.start,
+        endDate: this.props.season.end
+    })
+  }
+
   handleClose() {
-    this.props.setSeason(this.state.startDate, this.state.endDate)
+    let confirmedDates = {start: this.state.startDate, end: this.state.endDate}
+    updateSeason(confirmedDates.start, confirmedDates.end, this.props.teamId)
+      .then(function(res){
+        if (res.ok) {
+          this.props.setSeason(confirmedDates.start, confirmedDates.end)
+          this.props.showSnackbar("Settings updated")
+        } else {
+          this.props.showSnackbar("Could not update settings")
+        }
+      }.bind(this))
     this.props.hideSettings();
   };
 
@@ -56,14 +74,17 @@ class SettingsWindowContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    open: state.team.settingsVisible
+    open: state.team.settingsVisible,
+    season: state.team.season,
+    teamId: state.team.teamId
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     hideSettings: () => dispatch(settingsVisible(false)),
-    setSeason: (start, end) => dispatch(setSeason(start, end))
+    setSeason: (start, end) => dispatch(setSeason(start, end)),
+    showSnackbar: (message) => dispatch(showSnackbar(message))
   }
 }
 

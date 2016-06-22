@@ -2,11 +2,9 @@ class PlayersController < ApplicationController
 
 skip_before_filter :verify_authenticity_token
 
-  def index
+  def show
     player = User.find(params[:id]) #params[:id] - hard coded
-    resources = Resource.find(@player.team_id)
-    classes = Classes.find(params[:id])
-
+    resources = Resource.where(team_id: player.team_id)
 
     coach = User.find_by("team_id = ? AND coach = ?", player.team_id, true)
     coach_calendar = coach.get_user_schedule
@@ -18,11 +16,10 @@ skip_before_filter :verify_authenticity_token
       team_id: player.team_id,
       name: player.full_name,
       resources: resources,
-      classes: classes,
       coach_calendar: coach_calendar,
       player_calendar: player_calendar,
-      grades: grades
-      notifications: player.show_player_notifications
+      grades: grades,
+      notifications: player.get_player_notifications
     }
 
 
@@ -30,5 +27,3 @@ skip_before_filter :verify_authenticity_token
 
   end
 end
-
-
