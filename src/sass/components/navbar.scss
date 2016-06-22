@@ -12,7 +12,28 @@
   overflow:visible;
 }
 
+.navBarTitle {
+  float:right;
+  positition: relative;
+  margin-left: 10px;
+  font-size:25px;
+  color:honeydew;
+  font-weight:bold;
+}
+
 .teamSettingsButton {
   float:right;
   position:relative;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color:honeydew;
+  background-color:#737272;
+  text-align: center;
+  width: 100%;
+  height:8px;
 }
