@@ -23,7 +23,7 @@ ReactDOM.render((
       <Router history={hashHistory}>
         <Route path="/" component={TeamViewContainer}>
         </Route>
-        <Route path="/editor" component={EditorViewContainer} />
+        <Route path="/team" component={TeamViewContainer} />
         <Route path="/player" component={PlayerViewContainer} />
       </Router>
     </Provider>

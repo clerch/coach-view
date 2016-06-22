@@ -6,10 +6,10 @@ import BigCalendarContainer from '../containers/BigCalendarContainer.jsx';
 import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx';
 import GradeListContainer from './GradeListContainer.jsx'
 import SnackbarContainer from '../containers/SnackbarContainer.jsx'
-import { loadUsers, loadResources } from '../lib/loadingFunctions.js'
+import { fetchPlayerData } from '../lib/loadingFunctions.js'
 import {Tabs, Tab} from 'material-ui/Tabs';
 import { connect } from 'react-redux'
-import { loadTeamResources } from '../actions/index'
+import { resetAll, loadTeamResources, loadPlayerData, loadTeamEvents } from '../actions/index'
 import ResourceListContainer from '../containers/ResourceListContainer.jsx';
 // import SettingsWindowContainer from '../containers/SettingsWindowContainer.jsx'
 import ResourceEditWindowContainer from '../containers/ResourceEditWindowContainer.jsx'
@@ -19,7 +19,8 @@ import ResourceEditWindowContainer from '../containers/ResourceEditWindowContain
 class PlayerViewContainer extends React.Component {
     constructor(props) {
     super(props)
-    loadResources.bind(this)(1)
+    this.props.resetAll()
+    fetchPlayerData.bind(this)(2)
   }
   render() {
     return(
@@ -29,7 +30,7 @@ class PlayerViewContainer extends React.Component {
         <div className="grade-table">
           <Tabs>
             <Tab label="Assignments" >
-              <div>      
+              <div>
                 <GradeListContainer/>
               </div>
             </Tab>
@@ -56,7 +57,10 @@ class PlayerViewContainer extends React.Component {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    loadTeamResources: (resources) => dispatch(loadTeamResources(resources))
+    resetAll: () => dispatch(resetAll()),
+    loadTeamResources: (resources) => dispatch(loadTeamResources(resources)),
+    loadPlayerData: (data) => dispatch(loadPlayerData(data)),
+    loadTeamEvents: (data) => dispatch(loadTeamEvents(data))
   }
 }
 export default connect(

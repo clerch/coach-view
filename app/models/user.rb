@@ -35,8 +35,10 @@ class User < ActiveRecord::Base
     events_list.items.each do |event|
       temp = {
         id: event.id,
+        event_type: event.summary,
         start: event.start.date_time,
-        end: event.end.date_time
+        end: event.end.date_time,
+
       }
       data[:events] << temp
     end
@@ -72,7 +74,7 @@ class User < ActiveRecord::Base
     events_list = service.list_events(
       self.calendar_id,
       max_results: nil, 
-      single_events: nil, 
+      single_events: true, 
       time_max: nil, 
       time_min: nil, 
       time_zone: nil, 

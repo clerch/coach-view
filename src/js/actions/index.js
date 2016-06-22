@@ -1,3 +1,9 @@
+export function resetAll() {
+  return {
+    type: 'RESET_ALL'
+  }
+}
+
 export function showPlayerSchedule(id) {
   return {
     type: 'SHOW_PLAYER_SCHEDULE',
@@ -9,7 +15,6 @@ export function addTeamEvent(event,eventType) {
   var newEvent = {
     start: event.start,
     end: event.end,
-    slots: event.slots,
     title: eventType
   }
   return {
@@ -18,6 +23,12 @@ export function addTeamEvent(event,eventType) {
   }
 }
 
+export function loadTeamEvents(events) {
+  return {
+    type: 'LOAD_TEAM_EVENTS',
+    events: events
+  }
+}
 export function toggleTeamEvents() {
   return {
     type: 'TOGGLE_TEAM_EVENTS'
@@ -136,3 +147,25 @@ export function hideSnackbar() {
     type: 'HIDE_SNACKBAR'
   }
 }
+
+export function showPlayerProfile(playerId) {
+  return {
+    type: 'SHOW_PLAYER_PROFILE',
+    playerId: playerId
+  }
+}
+
+export function hidePlayerProfile() {
+  return {
+    type: 'HIDE_PLAYER_PROFILE'
+  }
+}
+
+export function loadPlayerGrades(grades) {
+  return {
+    type: 'LOAD_PLAYER_GRADES',
+    grades: grades
+  }
+}
+
+// PLAYER
