@@ -25,7 +25,13 @@ const initialState = {
   },
   resources: [],
   resourceWindowOpen: false,
-  currentResource: null
+  currentResource: {
+    content: null,
+    name: null,
+    id: null
+  },
+  snackbarVisible: false,
+  snackbarMessage: ''
 }
 
 export default function team(state = initialState, action) {
@@ -137,8 +143,38 @@ export default function team(state = initialState, action) {
         })
       case 'CLOSE_RESOURCE_WINDOW':
         return Object.assign({}, state, {
-          resourceWindowOpen: false,
-          currentResource: null
+          resourceWindowOpen: false
+        })
+      case 'SET_CURRENT_RESOURCE':
+        return Object.assign({}, state, {
+          currentResource: {
+            content: action.content ? action.content : state.currentResource.content,
+            name: action.name ? action.name : state.currentResource.name,
+            id: action.id ? action.id : state.currentResource.id
+          }
+        })
+      case 'CLEAR_CURRENT_RESOURCE':
+        return Object.assign({}, state, {
+          currentResource: {
+            content: null,
+            name: null,
+            id: null
+          }
+        })
+      case 'UPDATE_RESOURCES':
+        return Object.assign({}, state, {
+          resources: action.resources
+        })
+      case 'SHOW_SNACKBAR':
+        return Object.assign({}, state, {
+          snackbarVisible: true,
+          snackbarMessage: action.message
+
+        })
+      case 'HIDE_SNACKBAR':
+        return Object.assign({}, state, {
+          snackbarVisible: false,
+          snackbarMessage: ''
         })
       default:
         return state

@@ -12,8 +12,7 @@ skip_before_filter :verify_authenticity_token
     coach_calendar = coach.get_user_schedule
     player_calendar = player.get_user_schedule
     grades = player.grades
-    # user calendar
-    # grades
+
 
     @data = {
       team_id: player.team_id,
@@ -23,6 +22,7 @@ skip_before_filter :verify_authenticity_token
       coach_calendar: coach_calendar,
       player_calendar: player_calendar,
       grades: grades
+      # notifications: blah
     }
 
 

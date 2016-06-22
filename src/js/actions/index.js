@@ -101,3 +101,38 @@ export function closeResourceWindow() {
     type: 'CLOSE_RESOURCE_WINDOW'
   }
 }
+
+export function setCurrentResource(content,name,id) {
+  return {
+    type: 'SET_CURRENT_RESOURCE',
+    content: content,
+    name: name,
+    id: id
+  }
+}
+
+export function clearCurrentResource() {
+  return {
+    type: 'CLEAR_CURRENT_RESOURCE'
+  }
+}
+
+export function updateResources(resources) {
+  return {
+    type: 'UPDATE_RESOURCES',
+    resources: resources
+  }
+}
+
+export function showSnackbar(message) {
+  return {
+    type: 'SHOW_SNACKBAR',
+    message: message
+  }
+}
+
+export function hideSnackbar() {
+  return {
+    type: 'HIDE_SNACKBAR'
+  }
+}

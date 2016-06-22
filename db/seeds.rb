@@ -16,10 +16,16 @@ User.create(team_id: 1, coach: false, first_name: "player7", last_name: "burns",
 User.create(team_id: 1, coach: false, first_name: "player8", last_name: "burns", email: "player8@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "uaatl1s69n8qd9sb4e72crjjv0@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
 User.create(team_id: 1, coach: false, first_name: "player9", last_name: "burns", email: "player9@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "9qn9be450gq7hdjd7q2k9bvkgs@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
 User.create(team_id: 1, coach: false, first_name: "player10",last_name: "burns",  email: "player10@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "tgijbtj32eem3k47csuaqa0sng@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
+User.create(team_id: 1, coach: false, first_name: "player11", last_name: "burns", email: "player11@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "es850bov5ebci9hm80hfl5i688@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
+User.create(team_id: 1, coach: false, first_name: "player12", last_name: "burns", email: "player12@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "hbioporg68e78gvhqk57bc2ed0@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
+User.create(team_id: 1, coach: false, first_name: "player13", last_name: "burns", email: "player13@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "ojgp6p9sabsj9tbpnvui30r5sg@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
+User.create(team_id: 1, coach: false, first_name: "player14", last_name: "burns", email: "player14@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "uaatl1s69n8qd9sb4e72crjjv0@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
+User.create(team_id: 1, coach: false, first_name: "player15", last_name: "burns", email: "player15@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "9qn9be450gq7hdjd7q2k9bvkgs@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
+User.create(team_id: 1, coach: false, first_name: "player16",last_name: "burns",  email: "player16@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "tgijbtj32eem3k47csuaqa0sng@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
 
 
-Team.create(name: "RazerSharks", created_at: Date.today, updated_at: Date.today)
-Team.create(name: "HippoHerd", created_at: Date.today, updated_at: Date.today)
+Team.create(name: "RazerSharks", season_start: DateTime.new(2016,4,20), season_end: DateTime.new(2016,8,20), created_at: Date.today, updated_at: Date.today)
+Team.create(name: "HippoHerd", season_start: DateTime.new(2016,4,20), season_end: DateTime.new(2016,8,20), created_at: Date.today, updated_at: Date.today)
 
 Grade.create(user_id: 1, course: "Math" , assignment_type: "Assignment", grade: 78, created_at: Date.today, updated_at: Date.today)
 Grade.create(user_id: 2, course: "Physics", assignment_type: "Midterm", grade: 56, created_at: Date.today, updated_at: Date.today)
@@ -63,6 +69,28 @@ Resource.create(team_id: 3, name: "Meeting notes", resource_type: "training sche
 Vivamus volutpat varius felis, sit amet consectetur ante congue vitae. Aenean ac rhoncus ipsum. Sed lobortis sapien finibus, venenatis sapien vel, blandit velit. Nullam placerat, eros in pretium placerat, elit est hendrerit tellus, vitae sodales eros augue sed ipsum. Morbi pharetra nibh eu pellentesque varius. Proin non suscipit tortor. Praesent fringilla at urna a tincidunt. Sed nec velit orci. Donec aliquam odio ut tincidunt ornare. Donec risus libero, mollis eu quam elementum, lacinia interdum nunc. Integer vulputate suscipit diam sit amet tincidunt. Suspendisse lorem elit, sagittis in gravida sit amet, finibus nec justo. Proin semper luctus est, eu gravida leo hendrerit mattis. Morbi pretium, leo eget imperdiet blandit, nibh dui accumsan leo, vel tincidunt eros velit sed tortor. Fusce et nisi et lacus molestie commodo.
 
 ", created_at: Date.today, updated_at: Date.today)
+
+
+Notification.create(user_id: 1, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 2, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 3, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 4, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 5, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 6, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 7, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 8, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 9, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 10, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 11, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 12, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 13, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 14, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 15, content: "grade", notification_text: "James grades have been submitted.")
+
+
+
+
+
 
 
 
