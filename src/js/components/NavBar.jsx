@@ -1,5 +1,6 @@
 import React from 'react'
 import TeamSettingsButton from './TeamSettingsButton.jsx'
+import NotificationBadgeContainer from '../containers/NotificationBadgeContainer.jsx'
 
 export default class NavBar extends React.Component {
   render() {
@@ -7,7 +8,8 @@ export default class NavBar extends React.Component {
       <nav
         className="navBar"
       >
-      <TeamSettingsButton/>
+      <NotificationBadgeContainer />
+      <TeamSettingsButton />
       </nav>
     )
   }

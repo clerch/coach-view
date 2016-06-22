@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { loadPlayerData, setPlayerMissedKeys, calculateMissedEvents, setPlayerCount, loadTeamResources } from '../actions/index'
+import { loadPlayerData, setPlayerMissedKeys, calculateMissedEvents, setPlayerCount, loadTeamResources, setSeason } from '../actions/index'
 import BigCalendarContainer from '../containers/BigCalendarContainer.jsx';
 import PlayerListContainer from '../containers/PlayerListContainer.jsx';
 import ResourceListContainer from '../containers/ResourceListContainer.jsx';
@@ -42,7 +42,8 @@ function mapDispatchToProps(dispatch) {
     setPlayerMissedKeys: (players) => dispatch(setPlayerMissedKeys(players)),
     calculateMissed: () => dispatch(calculateMissedEvents()),
     setPlayerCount: (count) => dispatch(setPlayerCount(count)),
-    loadTeamResources: (resources) => dispatch(loadTeamResources(resources))
+    loadTeamResources: (resources) => dispatch(loadTeamResources(resources)),
+    setSeason: (start, end) => dispatch(setSeason(start, end))
   }
 }
 export default connect(

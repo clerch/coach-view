@@ -46,3 +46,20 @@ export function createResource(resource,teamId) {
 
     return fetch(HOST_NAME + "team/" + teamId + "/resources", options)
 }
+
+export function updateSeason(start,end,teamId) {
+  console.log(start, end)
+  var body = {
+    season_start: start.toUTCString(),
+    season_end: end.toUTCString(),
+    id: teamId
+  }
+
+  var options = {
+    method:"PUT",
+    body: JSON.stringify(body),
+    headers: headers
+  }
+
+    return fetch(HOST_NAME + "team/" + teamId, options)
+}
