@@ -80,11 +80,13 @@ class ResourceEditWindowContainer extends React.Component {
   render() {
     const actions = [
       <FlatButton
+        style={{color: 'red'}}
         label="Cancel"
         primary={false}
         onTouchTap={() => this.handleCancel()}
       />,
       <FlatButton
+        style={{color: '#33BA11'}}
         label="Save"
         primary={true}
         onTouchTap={() => this.handleSave()}
@@ -105,7 +107,6 @@ class ResourceEditWindowContainer extends React.Component {
     return (
       <div>
         <Dialog
-          title="Edit Resource"
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
@@ -113,6 +114,7 @@ class ResourceEditWindowContainer extends React.Component {
         >
         <TextField
           name="titletextfield"
+          placeholder="Title"
           defaultValue={this.props.currentResource ? this.props.currentResource.name : ''}
           className="title"
           onChange={(cb,name) => {this.props.setCurrentResource(
