@@ -39,9 +39,12 @@ class ResourceEditWindowContainer extends React.Component {
       let newResources = this.props.resources.slice()
       newResources[resourceIdx].content = this.props.currentResource.content
       newResources[resourceIdx].name = this.props.currentResource.name
-      this.props.updateResources(newResources)
-      updateResource(this.props.currentResource)
-      this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been saved")
+      if (updateResource(this.props.currentResource)) {
+        this.props.updateResources(newResources)
+        this.props.showSnackbar("Resource '" + this.props.currentResource.name + "' has been saved")
+      } else {
+        // it failed
+      }
     } else {
       // save to resource array and post to server
       this.props.currentResource.id = new Date().getTime() + this.props.currentResource.name
