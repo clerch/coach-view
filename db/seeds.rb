@@ -24,8 +24,8 @@ User.create(team_id: 1, coach: false, first_name: "player15", last_name: "burns"
 User.create(team_id: 1, coach: false, first_name: "player16",last_name: "burns",  email: "player16@example.com", password: "12345", access_token: "askj35895kjadf", calendar_id: "tgijbtj32eem3k47csuaqa0sng@group.calendar.google.com", refresh_token: "1/dsOfkB8yWq1SAnC7kdWANJ4MBa3a_WLNRXpjgng0HBE", token_expiry_date: Date.today + 10, created_at: Date.today, updated_at: Date.today)
 
 
-Team.create(name: "RazerSharks", season_start: DateTime.new(2016,4,20), season_end: DateTime.new(2016,8,20), created_at: Date.today, updated_at: Date.today)
-Team.create(name: "HippoHerd", season_start: DateTime.new(2016,4,20), season_end: DateTime.new(2016,8,20), created_at: Date.today, updated_at: Date.today)
+Team.create(name: "RazerSharks", season_start: DateTime.new(2016,4,18), season_end: DateTime.new(2016,8,20), created_at: Date.today, updated_at: Date.today)
+Team.create(name: "HippoHerd", season_start: DateTime.new(2016,4,18), season_end: DateTime.new(2016,8,20), created_at: Date.today, updated_at: Date.today)
 
 Grade.create(user_id: 1, course: "Math" , assignment_type: "Assignment", grade: 78, created_at: Date.today, updated_at: Date.today)
 Grade.create(user_id: 2, course: "Physics", assignment_type: "Midterm", grade: 56, created_at: Date.today, updated_at: Date.today)
@@ -71,21 +71,21 @@ Vivamus volutpat varius felis, sit amet consectetur ante congue vitae. Aenean ac
 ", created_at: Date.today, updated_at: Date.today)
 
 
-Notification.create(user_id: 1, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 2, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 3, content: "resource", notification_text: "The following training resource has been posted.")
-Notification.create(user_id: 4, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 5, content: "resource", notification_text: "The following training resource has been posted.")
-Notification.create(user_id: 6, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 7, content: "resource", notification_text: "The following training resource has been posted.")
-Notification.create(user_id: 8, content: "resource", notification_text: "The following training resource has been posted.")
-Notification.create(user_id: 9, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 10, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 11, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 12, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 13, content: "resource", notification_text: "The following training resource has been posted.")
-Notification.create(user_id: 14, content: "grade", notification_text: "James grades have been submitted.")
-Notification.create(user_id: 15, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 1, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 2, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 3, read: false, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 4, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 5, read: false, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 6, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 7, read: false, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 8, read: false, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 9, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 10, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 11, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 12, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 13, read: false, content: "resource", notification_text: "The following training resource has been posted.")
+Notification.create(user_id: 14, read: false, content: "grade", notification_text: "James grades have been submitted.")
+Notification.create(user_id: 15, read: false, content: "grade", notification_text: "James grades have been submitted.")
 
 
 

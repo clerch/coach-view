@@ -4,12 +4,18 @@ skip_before_filter :verify_authenticity_token
 
   def show
     team = Team.find(1) #params[:id] - hard coded
-    users = team.show_users
+    members = team.show_users
     resources = team.resources
-    
+    data = {
+      users: team.show_users,
+      resources: team.resources,
+      grades: team.show_grades,
+      season_length: {start: team.season_start, end: team.season_end},
+      notifications: team.show_coach_notifications
+    }
 
 
-    render :json => @users
+    render :json => data
 
   end
 end
@@ -17,7 +23,7 @@ end
 
 # get notifications
 # season length
-# resources
-# player list
-# grades
+# resources - done
+# player list - done
+# grades - done
 # season length to the database

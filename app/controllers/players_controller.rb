@@ -14,7 +14,7 @@ skip_before_filter :verify_authenticity_token
     grades = player.grades
 
 
-    @data = {
+    data = {
       team_id: player.team_id,
       name: player.full_name,
       resources: resources,
@@ -22,11 +22,11 @@ skip_before_filter :verify_authenticity_token
       coach_calendar: coach_calendar,
       player_calendar: player_calendar,
       grades: grades
-      # notifications: blah
+      notifications: player.show_player_notifications
     }
 
 
-    render :json => @data
+    render :json => data
 
   end
 end

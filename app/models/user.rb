@@ -2,9 +2,23 @@ class User < ActiveRecord::Base
 
   belongs_to :team
   has_many :grades
+  has_many :notifications
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+
+  def get_grades
+    self.grades
+  end
+
+  def get_coach_notifications
+    self.notifications.where("content = ?", "grade")
+  end
+
+  def get_player_notifications
+    self.notifications.where("content = ?", "resource")
   end
 
 
