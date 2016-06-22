@@ -1,5 +1,7 @@
 class ResourcesController < ApplicationController
 
+skip_before_filter :verify_authenticity_token
+
 
   def index
     @team = Team.find(1) # This is hard coded.
@@ -52,7 +54,9 @@ protected
     params.require(:resource).permit(
     :resource_type,
     :content,
-    :team_id
+    :team_id,
+    :name
+
   )
   end
 
