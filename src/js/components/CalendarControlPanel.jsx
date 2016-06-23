@@ -1,14 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleTeamEvents, togglePlayerEvents, setAddEventType, toggleDailyWeekly } from '../actions/index'
+import { loadTeamEvents, resetModifiedEvents, toggleTeamEvents, togglePlayerEvents, setAddEventType, toggleDailyWeekly } from '../actions/index'
 import classNames from 'classnames'
 import CalendarControlButton from './CalendarControlButton.jsx'
+import CommitButton from './CommitButton.jsx'
 import EventTypeSelectorButton from './EventTypeSelectorButton.jsx'
 import DailyWeeklyToggleButton from './DailyWeeklyToggleButton.jsx'
-
-
+import { cleanModifiedEvents } from '../lib/cleanModifiedEvents'
+import { updateTeamCalendar } from '../lib/postingFunctions'
+import { getTeamData } from '../lib/loadingFunctions'
 
 class CalendarControlPanel extends React.Component {
+
+  handleCommit() {
+    let cleanedEvents = cleanModifiedEvents(this.props.modifiedEvents)
+    updateTeamCalendar(cleanedEvents,this.props.teamId)
+      .then(function(res) {
+        if (res.ok) {
+          // sandiwch board
+          console.log('updated calendar just fine')
+          getTeamData.bind(this)(this.props.coachId)
+        }
+      }.bind(this))
+    this.props.resetModifiedEvents()
+  }
+
   render() {
     return(
       <div className="calendarControlPanel">
@@ -17,7 +33,7 @@ class CalendarControlPanel extends React.Component {
           <CalendarControlButton
             className="calendarControlButton bigEventControl"
             toggleEvents={function() {
-              this.props.dispatch(toggleTeamEvents())
+              this.props.toggleTeamEvents()
             }.bind(this)
           }
           >Team Schedule
@@ -25,7 +41,7 @@ class CalendarControlPanel extends React.Component {
           <CalendarControlButton
             className="calendarControlButton bigEventControl"
             toggleEvents={function() {
-              this.props.dispatch(togglePlayerEvents())
+              this.props.togglePlayerEvents()
             }.bind(this)
           }
           >Player Schedule
@@ -37,7 +53,7 @@ class CalendarControlPanel extends React.Component {
             <EventTypeSelectorButton
               className="gameEventToggle smallEventControl"
               setEventType={function() {
-                this.props.dispatch(setAddEventType('GAME_EVENT'))
+                this.props.setAddEventType('Game')
               }.bind(this)}
             >
             G
@@ -45,7 +61,7 @@ class CalendarControlPanel extends React.Component {
             <EventTypeSelectorButton
               className="practiceEventToggle smallEventControl"
               setEventType={function() {
-                this.props.dispatch(setAddEventType('PRACTICE_EVENT'))
+                this.props.setAddEventType('Practice')
               }.bind(this)}
             >
             P
@@ -53,7 +69,7 @@ class CalendarControlPanel extends React.Component {
             <EventTypeSelectorButton
               className="workoutEventToggle smallEventControl"
               setEventType={function() {
-                this.props.dispatch(setAddEventType('WORKOUT_EVENT'))
+                this.props.setAddEventType('Workout')
               }.bind(this)}
             >
             W
@@ -61,7 +77,7 @@ class CalendarControlPanel extends React.Component {
             <EventTypeSelectorButton
               className="meetingEventToggle smallEventControl"
               setEventType={function() {
-                this.props.dispatch(setAddEventType('MEETING_EVENT'))
+                this.props.setAddEventType('Meeting')
               }.bind(this)}
             >
             M
@@ -71,16 +87,17 @@ class CalendarControlPanel extends React.Component {
             <DailyWeeklyToggleButton
               className="dailyWeeklyEventToggle bigEventControl"
               toggleDailyWeekly={function() {
-                this.props.dispatch(toggleDailyWeekly())
+                this.props.toggleDailyWeekly()
               }.bind(this)}
             >
             {this.props.currentValue === 'daily' ? 'Weekly' : 'Daily'}
           </DailyWeeklyToggleButton>
-            <CalendarControlButton
+            <CommitButton
               className="commitButton bigEventControl"
+              commit={() => this.handleCommit()}
             >
             Commit
-            </CalendarControlButton>
+          </CommitButton>
           </div>
         </div>
       </div>
@@ -90,10 +107,24 @@ class CalendarControlPanel extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentValue: state.team.dailyWeekly
+    currentValue: state.team.dailyWeekly,
+    modifiedEvents: state.team.modifiedEvents,
+    teamId: state.team.teamId,
+    coachId: state.team.coachId
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    loadTeamEvents: (coachId) => dispatch(loadTeamEvents(coachId)),
+    toggleDailyWeekly: () => dispatch(toggleDailyWeekly()),
+    toggleTeamEvents: () => dispatch(toggleTeamEvents()),
+    togglePlayerEvents: () => dispatch(togglePlayerEvents()),
+    setAddEventType: (type) => dispatch(setAddEventType(type)),
+    resetModifiedEvents: () => dispatch(resetModifiedEvents())
+  }
+}
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CalendarControlPanel)

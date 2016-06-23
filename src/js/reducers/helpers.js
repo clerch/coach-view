@@ -15,10 +15,14 @@ export function processEvent(event,dailyWeekly,season) {
         {
           start: new Date(i),
           end: new Date(i + eventLength),
-          title: 'WEEKLY_' + event.title
+          title: event.title,
+          eventType: event.eventType,
+          id: event.id + i
         }
       )
     }
+    console.log(event)
+    console.log(events)
     return events
   }
 }
@@ -36,7 +40,6 @@ export function calculateMissed(playerEvents,teamEvents) {
         missed.player[pEvent.player] = 0
       }
       if (eventsOverlap(pEvent,tEvent) && !missingEvent[pEvent.player]) {
-        console.log(pEvent, tEvent)
         missed.player[pEvent.player]++
         missingEvent[pEvent.player] = true
       }
@@ -45,9 +48,11 @@ export function calculateMissed(playerEvents,teamEvents) {
   return missed
 }
 
+// PRIVATE
+
 function eventsOverlap(pEvent,tEvent) {
   return (tEvent.start.getTime() < pEvent.end.getTime()  &&
-          pEvent.start.getTime() < tEvent.end.getTime()) ||
-         (pEvent.start.getTime() < tEvent.end.getTime()  &&
-          tEvent.start.getTime() < pEvent.end.getTime())
+  pEvent.start.getTime() < tEvent.end.getTime()) ||
+  (pEvent.start.getTime() < tEvent.end.getTime()  &&
+  tEvent.start.getTime() < pEvent.end.getTime())
 }

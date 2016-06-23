@@ -63,3 +63,13 @@ export function updateSeason(start,end,teamId) {
 
     return fetch(HOST_NAME + "team/" + teamId, options)
 }
+
+export function updateTeamCalendar(events,teamId) {
+  var options = {
+    method:"POST",
+    body: JSON.stringify(events),
+    headers: headers
+  }
+
+  return fetch(HOST_NAME + "team/" + teamId + "/events", options)
+}
