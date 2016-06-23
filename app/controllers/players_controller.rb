@@ -4,7 +4,7 @@ skip_before_filter :verify_authenticity_token
 
   def show
     player = User.find(params[:id]) #params[:id] - hard coded
-    resources = Resource.where(team_id: player.team_id)
+    resources = Resource.where("team_id = ?", player.team_id)
     coach = User.find_by("team_id = ? AND coach = ?", player.team_id, true)
     coach_calendar = coach.get_user_schedule
     player_calendar = player.get_user_schedule
