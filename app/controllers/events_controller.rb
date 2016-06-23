@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def create
-    @team = Team.find(params[:id]) #params[:id] - hard coded
+    @team = Team.find(params[:team_id]) #params[:id] - hard coded
     @coach = @team.users.where("coach = ?", true)[0]
 
     service = get_service(@coach)

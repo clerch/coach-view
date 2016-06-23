@@ -9,6 +9,7 @@ import DailyWeeklyToggleButton from './DailyWeeklyToggleButton.jsx'
 import { cleanModifiedEvents } from '../lib/cleanModifiedEvents'
 import { updateTeamCalendar } from '../lib/postingFunctions'
 import { getTeamData } from '../lib/loadingFunctions'
+import { showSnackbar } from '../actions/index'
 
 class CalendarControlPanel extends React.Component {
 
@@ -17,12 +18,15 @@ class CalendarControlPanel extends React.Component {
     updateTeamCalendar(cleanedEvents,this.props.teamId)
       .then(function(res) {
         if (res.ok) {
-          // sandiwch board
+          this.props.showSnackbar("Committed changes successfully")
           console.log('updated calendar just fine')
           getTeamData.bind(this)(this.props.coachId)
+          this.props.resetModifiedEvents()
+        } else {
+          this.props.showSnackbar("Could not commit events")
         }
       }.bind(this))
-    this.props.resetModifiedEvents()
+
   }
 
   render() {
@@ -121,7 +125,8 @@ function mapDispatchToProps(dispatch) {
     toggleTeamEvents: () => dispatch(toggleTeamEvents()),
     togglePlayerEvents: () => dispatch(togglePlayerEvents()),
     setAddEventType: (type) => dispatch(setAddEventType(type)),
-    resetModifiedEvents: () => dispatch(resetModifiedEvents())
+    resetModifiedEvents: () => dispatch(resetModifiedEvents()),
+    showSnackbar: (message) => dispatch(showSnackbar(message))
   }
 }
 export default connect(
