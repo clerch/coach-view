@@ -29,7 +29,9 @@ class PlayerProfileGrades extends React.Component {
   }
 
     return (
-      <Tabs>
+      <Tabs
+        tabItemContainerStyle={{backgroundColor:"#989898"}}
+      >
         <Tab label="Grades" >
           <div
             className="playerProfileGradesTable"

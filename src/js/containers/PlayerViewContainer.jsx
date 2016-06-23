@@ -28,7 +28,9 @@ class PlayerViewContainer extends React.Component {
         <NavBar/>
 
         <div className="grade-table">
-          <Tabs>
+          <Tabs
+            tabItemContainerStyle={{backgroundColor:"#989898"}}
+          >
             <Tab label="Assignments" >
               <div>
                 <GradeListContainer/>

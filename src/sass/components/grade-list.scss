@@ -31,3 +31,14 @@
   width: 100%;
   background-color: white;
 }
+.resourceListContainerPlayer .addResourceButton {
+  display: none !important;
+}
+.resourceListContainerPlayer .resourceListContainer {
+  width:100%;
+}
+
+.grade-table .container {
+  max-height:480px;
+  overflow:scroll;
+}

@@ -31,7 +31,7 @@ export function fetchPlayerData(playerId) {
     .then(function(data) {
       this.props.loadPlayerData(data.player_calendar)
       this.props.loadTeamEvents(data.coach_calendar.events)
-      // this.props.loadTeamResources(data.resources)
+      this.props.loadTeamResources(data.resources)
       // this.props.setPlayerMissedKeys(data.users)
       // this.props.setPlayerCount(data.users.filter((x) => x.coach === false).length)
       // this.props.setSeason(new Date(data.season_length.start),new Date(data.season_length.end))

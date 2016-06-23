@@ -20,36 +20,22 @@ const rows = [
     // {value: 'Michael at 4:20pm'}
   ]},
   {columns: [
-    {value: 'Class 2'},
-    {value: 'Assignment 1'},
+    {value: 'Astrology 201'},
+    {value: 'Essay'},
     {value: '75%'},
     {value: true},
     // {value: 'Someone at 5:50pm'}
   ]},
   {columns: [
-    {value: 'Class 3'},
-    {value: 'Assignment 2'},
+    {value: 'Physics 240'},
+    {value: 'Final'},
     {value: '80%'},
     {value: true},
     // {value: 'Randy at 3:33pm'}
   ]},
     {columns: [
-    {value: 'Class 4'},
-    {value: 'Assignment 2'},
-    {value: '80%'},
-    {value: true},
-    // {value: 'Randy at 3:33pm'}
-  ]},
-    {columns: [
-    {value: 'Class 5'},
-    {value: 'Assignment 5'},
-    {value: '80%'},
-    {value: true},
-    // {value: 'Randy at 3:33pm'}
-  ]},
-    {columns: [
-    {value: 'Class 6'},
-    {value: 'Assignment 2'},
+    {value: 'History 230'},
+    {value: 'Short Essay'},
     {value: '80%'},
     {value: true},
     // {value: 'Randy at 3:33pm'}
