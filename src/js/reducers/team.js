@@ -1,7 +1,8 @@
-import { processEvent, calculateMissed } from './helpers.js'
+import { processEvent, calculateMissed, cleanUpModifiedEvents } from './helpers.js'
 
 const initialState = {
   teamId: 1,
+  coachId: null,
   playerEvents: [],
   teamEvents: [],
   playerEventsVisible: true,
@@ -10,10 +11,14 @@ const initialState = {
     team: [],
     player: []
   },
+  modifiedEvents: {
+    delete: [],
+    create: []
+  },
   playerList: [],
   playerCount: 0,
   playerLoadProgress: 0,
-  addEventType: 'PRACTICE_EVENT',
+  addEventType: 'Practice',
   season: {
     start: null,
     end: null
@@ -42,6 +47,10 @@ export default function team(state = initialState, action) {
   switch(action.type) {
     case 'RESET_ALL':
       return Object.assign({}, state, initialState)
+    case 'SET_COACH_ID':
+      return Object.assign({}, state, {
+        coachId: action.id
+      })
     case 'SHOW_PLAYER_SCHEDULE':
     console.log(state)
 
@@ -68,6 +77,10 @@ export default function team(state = initialState, action) {
             ? state.teamEvents.concat(events)
             : [],
           player: state.visibleEvents.player
+        },
+        modifiedEvents: {
+          delete: state.modifiedEvents.delete,
+          create: state.modifiedEvents.create.concat(events)
         }
       })
     case 'LOAD_TEAM_EVENTS':
@@ -205,6 +218,29 @@ export default function team(state = initialState, action) {
         return Object.assign({}, state, {
           playerGrades: action.grades
         })
+      case 'DELETE_EVENT':
+        var teamEventsCopy = state.teamEvents.slice()
+        var idx = teamEventsCopy.map((x) => x.id)
+          .indexOf(action.event.id)
+          teamEventsCopy.splice(idx,1)
+        return Object.assign({}, state, {
+          modifiedEvents: {
+            delete: state.modifiedEvents.delete.concat(action.event.id),
+            create: state.modifiedEvents.create
+          },
+          teamEvents: teamEventsCopy,
+          visibleEvents: {
+            team: teamEventsCopy,
+            player: state.visibleEvents.player
+          }
+        })
+      case 'RESET_MODIFIED_EVENTS':
+        return Object.assign({}, state, {
+          modifiedEvents: {
+            delete: [],
+            create: []
+          }
+      })
       default:
         return state
   }

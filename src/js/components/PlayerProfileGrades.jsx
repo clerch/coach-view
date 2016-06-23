@@ -10,16 +10,23 @@ class PlayerProfileGrades extends React.Component {
   }
 
   render() {
-    var tableRowNodes = this.props.grades.map(function(grade){
-      return(
-      <TableRow>
-        <TableRowColumn>{grade.course}</TableRowColumn>
-        <TableRowColumn>{grade.assignment_type}</TableRowColumn>
-        <TableRowColumn>{grade.grade}</TableRowColumn>
-        <TableRowColumn>{new Date(grade.created_at).toDateString()}</TableRowColumn>
-      </TableRow>
-      )
-    }.bind(this))
+    var tableRowNodes;
+    if (this.props.grades) {
+      tableRowNodes = this.props.grades.map(function(grade){
+        return(
+        <TableRow
+          key={grade.id}
+        >
+          <TableRowColumn>{grade.course}</TableRowColumn>
+          <TableRowColumn>{grade.assignment_type}</TableRowColumn>
+          <TableRowColumn>{grade.grade}</TableRowColumn>
+          <TableRowColumn>{new Date(grade.created_at).toDateString()}</TableRowColumn>
+        </TableRow>
+        )
+      }.bind(this))
+  } else {
+    tableRowNodes = <TableRow></TableRow>
+  }
 
     return (
       <Tabs>
@@ -48,9 +55,6 @@ class PlayerProfileGrades extends React.Component {
             </TableBody>
           </Table>
         </div>
-      </Tab>
-      <Tab label="Schedule">
-
       </Tab>
     </Tabs>
     )

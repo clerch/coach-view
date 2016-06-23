@@ -15,7 +15,9 @@ export function addTeamEvent(event,eventType) {
   var newEvent = {
     start: event.start,
     end: event.end,
-    title: eventType
+    title: eventType,
+    eventType: eventType,
+    id: new Date().getTime() + eventType
   }
   return {
     type: 'ADD_TEAM_EVENT',
@@ -24,9 +26,18 @@ export function addTeamEvent(event,eventType) {
 }
 
 export function loadTeamEvents(events) {
+  let cleanEvents = events.map((x) => {
+    return {
+      start: new Date(x.start),
+      end: new Date(x.end),
+      id: x.id,
+      eventType: x.event_type,
+      title: x.event_type
+    }
+  })
   return {
     type: 'LOAD_TEAM_EVENTS',
-    events: events
+    events: cleanEvents
   }
 }
 export function toggleTeamEvents() {
@@ -165,6 +176,26 @@ export function loadPlayerGrades(grades) {
   return {
     type: 'LOAD_PLAYER_GRADES',
     grades: grades
+  }
+}
+
+export function deleteEvent(event) {
+  return {
+    type: 'DELETE_EVENT',
+    event: event
+  }
+}
+
+export function resetModifiedEvents() {
+  return {
+    type: 'RESET_MODIFIED_EVENTS'
+  }
+}
+
+export function setCoachId(id) {
+  return {
+    type: 'SET_COACH_ID',
+    id: id
   }
 }
 

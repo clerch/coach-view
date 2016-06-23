@@ -32,7 +32,8 @@ class PlayerProfileContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    playerProfileVisible: state.team.playerProfileVisible
+    playerProfileVisible: state.team.playerProfileVisible,
+    playerList: state.team.playerList
   }
 }
 
