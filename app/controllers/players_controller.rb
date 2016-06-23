@@ -5,12 +5,10 @@ skip_before_filter :verify_authenticity_token
   def show
     player = User.find(params[:id]) #params[:id] - hard coded
     resources = Resource.where(team_id: player.team_id)
-
     coach = User.find_by("team_id = ? AND coach = ?", player.team_id, true)
     coach_calendar = coach.get_user_schedule
     player_calendar = player.get_user_schedule
     grades = player.grades
-
 
     data = {
       team_id: player.team_id,
@@ -22,15 +20,15 @@ skip_before_filter :verify_authenticity_token
       notifications: player.get_player_notifications
     }
 
-
     render :json => data
 
   end
 
   def update
     player = Player.find(params[:id])
+    team = Team.find(player.team_id)
     
-    .update(
+    team.update(
       season_start: params[:season_start],
       season_end: params[:season_end]
     )
@@ -39,8 +37,7 @@ skip_before_filter :verify_authenticity_token
     else
       render :nothing => true, :status => 500
     end
-
+    
   end
-
 
 end

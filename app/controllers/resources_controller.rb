@@ -2,12 +2,11 @@ class ResourcesController < ApplicationController
 
 skip_before_filter :verify_authenticity_token
 
-
-
   def index
     team = Team.find(params[:team_id])
     resources = team.resources.order(created_at: :asc)
     render :json => resources
+
   end
 
   def new
@@ -25,6 +24,7 @@ skip_before_filter :verify_authenticity_token
   def create
 
     resource = Resource.new(resource_params)
+    
     if resource.save
       players = User.where("team_id = ? AND coach = ?", params[:team_id], false)
       players.each do |player|
@@ -35,7 +35,9 @@ skip_before_filter :verify_authenticity_token
           read: false
         )
       end
+
       render :status => 200, :json => {:id => resource.id }
+
     end
   end
 
@@ -51,6 +53,7 @@ skip_before_filter :verify_authenticity_token
       name: params[:name]
     )
     render :nothing => true, :status => 200
+
   end
 
 
@@ -59,6 +62,7 @@ skip_before_filter :verify_authenticity_token
     resource.destroy
 
     render :nothing => true, :status => 200
+
   end
 
 
@@ -73,6 +77,5 @@ protected
     :name
   )
   end
-
 
 end

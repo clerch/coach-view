@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-
   def get_grades
     self.grades
   end
@@ -20,7 +19,6 @@ class User < ActiveRecord::Base
   def get_player_notifications
     self.notifications.where("content = ?", "resource")
   end
-
 
   def get_user_schedule
 
@@ -45,7 +43,6 @@ class User < ActiveRecord::Base
       return data
   end
 
-
   def fetch_events_list
     client_opts = {"web"=>{
       "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
@@ -55,7 +52,6 @@ class User < ActiveRecord::Base
       }
     }
       
-
       client_secrets = Google::APIClient::ClientSecrets.new(client_opts)
 
       # Build an authorization object from the client secrets.
@@ -83,10 +79,4 @@ class User < ActiveRecord::Base
 
     events_list
   end 
-
-
-
-
-
-
 end
