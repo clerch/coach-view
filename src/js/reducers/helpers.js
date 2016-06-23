@@ -15,7 +15,7 @@ export function processEvent(event,dailyWeekly,season) {
         {
           start: new Date(i),
           end: new Date(i + eventLength),
-          title: event.title,
+          title: "Weekly " + event.eventType,
           eventType: event.eventType,
           id: event.id + i
         }
