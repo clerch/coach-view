@@ -80,7 +80,7 @@ class ResourceEditWindowContainer extends React.Component {
   render() {
     const actions = [
       <FlatButton
-        style={{color: 'red'}}
+        style={{color: 'black'}}
         label="Cancel"
         primary={false}
         onTouchTap={() => this.handleCancel()}
@@ -95,6 +95,7 @@ class ResourceEditWindowContainer extends React.Component {
 
     const deleteButton =
       <FlatButton
+        style={{color: 'red'}}
         label="Delete"
         primary={false}
         onTouchTap={() => this.handleDelete()}
