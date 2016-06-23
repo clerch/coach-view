@@ -31,7 +31,7 @@ skip_before_filter :verify_authenticity_token
 
 
   def notification_params
-    params.require(:resource).permit(
+    params.require(:notification).permit(
     :user_id,
     :notification_text,
     :content,

@@ -28,7 +28,7 @@ skip_before_filter :verify_authenticity_token
     if @resource.save
       players = User.where("team_id = ? AND coach = ?", params[:team_id], false)
       players.each do |player|
-        @notification.create(
+        @Notification.create(
           user_id: player.id,
           notification_text: "The #{params[:name]} resource was posted.",
           content: "resource",
