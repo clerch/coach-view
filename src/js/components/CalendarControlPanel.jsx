@@ -11,6 +11,7 @@ import { updateTeamCalendar } from '../lib/postingFunctions'
 import { getTeamData } from '../lib/loadingFunctions'
 import { showSnackbar } from '../actions/index'
 import FontIcon from 'material-ui/FontIcon'
+import FlatButton from 'material-ui/FlatButton'
 
 class CalendarControlPanel extends React.Component {
 
@@ -36,7 +37,7 @@ class CalendarControlPanel extends React.Component {
 
         <div className="displayTogglePanel">
           <CalendarControlButton
-            className="calendarControlButton bigEventControl"
+            className="teamControl calendarControlButton bigEventControl"
             toggleEvents={function() {
               this.props.toggleTeamEvents()
             }.bind(this)
@@ -44,7 +45,7 @@ class CalendarControlPanel extends React.Component {
           >Team Schedule
           </CalendarControlButton>
           <CalendarControlButton
-            className="calendarControlButton bigEventControl"
+            className="playerControl calendarControlButton bigEventControl"
             toggleEvents={function() {
               this.props.togglePlayerEvents()
             }.bind(this)
@@ -106,15 +107,16 @@ class CalendarControlPanel extends React.Component {
               toggleDailyWeekly={function() {
                 this.props.toggleDailyWeekly()
               }.bind(this)}
-            >
-            {this.props.currentValue === 'daily' ? 'Weekly' : 'Daily'}
+            ><span className="weeklyLabel weeklyText">Weekly: </span>
+          <span className="weeklyOnOff weeklyText">{this.props.currentValue === 'daily' ? 'Off' : 'On'}</span>
           </DailyWeeklyToggleButton>
-            <CommitButton
+            <FlatButton
               className="commitButton bigEventControl"
-              commit={() => this.handleCommit()}
+              style={{lineHeight:"none"}}
+              onTouchTap={() => this.handleCommit()}
             >
             Commit
-          </CommitButton>
+          </FlatButton>
           </div>
         </div>
       </div>

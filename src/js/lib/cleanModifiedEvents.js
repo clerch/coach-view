@@ -12,11 +12,11 @@ export function cleanModifiedEvents(events) {
     }
   }
   if (nonEvents.length) {
+    console.log('cleaning events')
     for (var nonEventId of nonEvents) {
       for (var create of events.create) {
         if (nonEventId !== create.id) {
           cleanEvents.create.push(create)
-          console.log(create)
         }
       }
       for (var deleteId of events.delete) {

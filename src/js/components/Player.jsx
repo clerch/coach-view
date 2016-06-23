@@ -14,9 +14,9 @@ class Player extends React.Component {
   }
 
   render () {
-    let redLevel = 216 + Math.round((this.props.missedPercentage * 1.5))
-    let greenLevel = 216 - Math.round((this.props.missedPercentage * 1))
-    let blueLevel = 216 - Math.round((this.props.missedPercentage * 1))
+    let redLevel = 216 - Math.round((this.props.missedPercentage * 0.4))
+    let greenLevel = 216 - Math.round((this.props.missedPercentage * 1.5))
+    let blueLevel = 216 - Math.round((this.props.missedPercentage * 1.5))
     let bgColor = "rgb(" + redLevel + "," + greenLevel + "," + blueLevel + ")"
 
     return(
@@ -26,7 +26,7 @@ class Player extends React.Component {
         onMouseEnter={() =>  this.props.showPlayerSchedule(this.props.calId)}
         onClick={() => this.handleClick()}
       >
-        {this.props.children} {this.props.missedPercentage}
+        {this.props.children}
       </li>
     );
   }

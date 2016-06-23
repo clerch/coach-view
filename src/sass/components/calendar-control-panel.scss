@@ -9,9 +9,6 @@
 .calendarControlButton {
 
 }
-.calendarControlButton:active {
-  background-color:#bbf1bb;
-}
 
 .displayTogglePanel {
   background-color:$box-background-one;
@@ -51,8 +48,8 @@
   width:$big-button-width;
   text-align: center;
   cursor:default;
-  font-weight:200;
-  font-size:18px;
+  font-weight:200 !important;
+  font-size:18px !important;
 }
 .eventTypeControlPanel {
   width:$big-button-width;
@@ -80,7 +77,10 @@
 
 }
 .commitButton {
-  background-color:#d85b54;
+  background-color:#d85b54 !important;
+  height:100% !important;
+  line-height:none !important;
+  border-radius: 0px !important;
 }
 .smallEventTypeLabel {
   margin-top:4px;
@@ -92,4 +92,32 @@
   margin-top:5px;
   font-size:40px !important;
   color:grey !important;
+}
+
+.pressedCalendarControl {
+  background-color:#ececec;
+  color:grey;
+}
+
+.pressedSmallEventControlText {
+  color:black !important;
+}
+.pressedSmallEventControl {
+}
+
+.weeklyLabel {
+
+}
+
+.weeklyOnOff {
+}
+
+.weeklyOn {
+  font-weight:bold;
+  color:#4bab4b;
+}
+.weeklyText {
+  line-height:$button-height;
+  margin:0;
+  padding:0;
 }
