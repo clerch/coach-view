@@ -14,7 +14,9 @@ export default class NavBar extends React.Component {
       >
       <TeamSettingsButton/>
         <div className="navBarTitle">Lineup</div>
-        <div className="navBarCoach">Riverton Razorsharks</div>
+        <div className="navBarCoach">
+        <img src={'../src/css/img/Shark Filled-50.png'} alt="boohoo" className="img-responsive"/>&nbsp;
+        Riverton College Razorsharks</div>
         <div className="navBarTeamName">Coach Chesterbomb</div>        
       </nav>
       <Footer />
