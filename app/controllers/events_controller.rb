@@ -1,26 +1,26 @@
 class EventsController < ApplicationController
 
   def create
-    @team = Team.find(1) #params[:id] - hard coded
-    @coach = @team.users.where(coach: true)[0]
+    @team = Team.find(params[:id]) #params[:id] - hard coded
+    @coach = @team.users.where("coach = ?", true)[0]
 
     service = get_service(@coach)
 
     if params[:create]
       params[:create].each do |event|
-        event = create_event(event[:event_type], event[:start], event[:finish])
+        event = create_event(event[:eventType], event[:start], event[:end])
         result = service.insert_event(@coach.calendar_id, event)
         puts "Event created: #{result.id}"
       end
     end
-    
+
     if params[:delete]
-      params[:delete].each do |event|
-        event_id = event[:id]
+      params[:delete].each do |event_id|
         result = service.delete_event(@coach.calendar_id, event_id)
         puts "Event deleted: #{event_id}"
-      end 
+      end
     end
+    render :nothing => true, :status => 200
   end
 
   def create_event(event_type, start, finish)
@@ -41,9 +41,9 @@ class EventsController < ApplicationController
 
   def get_service(coach)
     client_opts = {"web"=>{
-      "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token", 
-      "client_id"=>ENV['GOOGLE_API_CLIENT_ID'], 
-      "client_secret"=>ENV['GOOGLE_API_CLIENT_SECRET'], 
+      "token_credential_uri"=>"https://accounts.google.com/o/oauth2/token",
+      "client_id"=>ENV['GOOGLE_API_CLIENT_ID'],
+      "client_secret"=>ENV['GOOGLE_API_CLIENT_SECRET'],
       "scope"=>["https://www.googleapis.com/auth/calendar"]
       }
     }

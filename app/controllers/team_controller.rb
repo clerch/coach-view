@@ -14,7 +14,6 @@ skip_before_filter :verify_authenticity_token
       notifications: team.show_coach_notifications
     }
 
-
     render :json => data
 
   end

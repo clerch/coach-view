@@ -36,7 +36,7 @@ skip_before_filter :verify_authenticity_token
   def update
     grade = Grade.find(params[:id])
     grade.update(
-      user_id: params[:user_id],
+      user_id: params[:player_id],
       course: params[:course],
       assignment_type: params[:assignment_type],
       grade: params[:grade]
