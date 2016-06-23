@@ -5,7 +5,7 @@
   color:honeydew;
   font-weight:200;
   font-size:18px;
-  background-color:#737272;
+  background-color:#272727;
   z-index: 99;
   margin-bottom:20px;
   text-align:center;
@@ -25,9 +25,35 @@
   float:left;
   position:relative;
   display: inline-block;
+  z-index: 4; 
 }
 
-.notificationBadgeContainer {
+.navBarTeamName {
+  position: relative;
+  text-align: right;
+  width: 98%;
+/*  background-color: red;*/
+  font-size: 15px;
+
+}
+
+.navBarCoach {
+  float:left;
+  position: relative;
+  margin-left: 10px;
+  font-size:15px;
+  color:honeydew;
+  text-align: center;
+  width: 75%;
+}
+
+.img-responsive {
+  height: 30px;
+  width: 35px;
+  vertical-align: sub;
+}
+
+/*.notificationBadgeContainer {
   float:right;
   position:relative;
   display: inline-block;
@@ -39,7 +65,7 @@
   margin-bottom: 40px;
   margin-right: 8px;
   
-}
+}*/
 
 .footer {
   position: absolute;
@@ -54,6 +80,3 @@
   z-index: 4; 
 }
 
-.navBarTeamName {
-  
-}

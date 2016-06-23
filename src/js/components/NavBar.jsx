@@ -14,7 +14,8 @@ export default class NavBar extends React.Component {
       >
       <TeamSettingsButton/>
         <div className="navBarTitle">Lineup</div>
-        <div className="navBarTeamName"></div>
+        <div className="navBarCoach">Riverton Razorsharks</div>
+        <div className="navBarTeamName">Coach Chesterbomb</div>        
       </nav>
       <Footer />
       </div>
