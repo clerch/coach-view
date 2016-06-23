@@ -8,7 +8,11 @@
 @import './components/markdown-editor';
 @import './components/drop-zone';
 @import './components/grade-list';
-
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 body {
   background-color: $main-bg-color;
+}
+* {
+  font-family:Raleway;
 }

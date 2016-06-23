@@ -15,8 +15,8 @@ class AddResourceButton extends React.Component {
       <FlatButton
         className="addResourceButton"
         onClick={() => this.props.openResourceWindow(newResource)}
-        backgroundColor="#a3efa3"
-        hoverColor="#99d099"
+        backgroundColor="#9de29d"
+        hoverColor="#a3efa3"
       >New Resource
       </FlatButton>
     )

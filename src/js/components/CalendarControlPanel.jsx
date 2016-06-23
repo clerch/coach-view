@@ -63,6 +63,7 @@ class CalendarControlPanel extends React.Component {
               }.bind(this)}
             >
             <FontIcon
+              style={{color:"grey"}}
               className="material-icons"
             >stars</FontIcon>
           <p className="smallEventTypeLabel">Game</p>
@@ -74,6 +75,7 @@ class CalendarControlPanel extends React.Component {
               }.bind(this)}
             >
               <FontIcon
+                style={{color:"grey"}}
                 className="material-icons"
               >directions_run</FontIcon>
             <p className="smallEventTypeLabel">Practice</p>
@@ -85,6 +87,7 @@ class CalendarControlPanel extends React.Component {
               }.bind(this)}
             >
               <FontIcon
+                style={{color:"grey"}}
                 className="material-icons"
               >fitness_center</FontIcon>
             <p className="smallEventTypeLabel">Workout</p>
@@ -96,6 +99,7 @@ class CalendarControlPanel extends React.Component {
               }.bind(this)}
             >
               <FontIcon
+                style={{color:"grey"}}
                 className="material-icons"
               >people</FontIcon>
             <p className="smallEventTypeLabel">Meeting</p>
@@ -115,7 +119,7 @@ class CalendarControlPanel extends React.Component {
               style={{lineHeight:"none"}}
               onTouchTap={() => this.handleCommit()}
             >
-            Commit
+            Save
           </FlatButton>
           </div>
         </div>

@@ -6,11 +6,19 @@ import PlayerLoadProgressContainer from '../containers/PlayerLoadProgressContain
 class PlayerListContainer extends React.Component {
 
   render () {
-    return(
+    return(<div className="playerListMasterContainer">
+      <div className="playerListHeader">
+      <h4>Roster</h4>
+    </div>
+      <div
+        className="playerListBigContainer"
+      >
       <div className="playerBox">
         <PlayerLoadProgressContainer/>
         <PlayerList data={this.props.data}/>
       </div>
+    </div>
+  </div>
     );
   }
 }

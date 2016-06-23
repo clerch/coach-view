@@ -4,17 +4,20 @@ import AddResourceButton from '../components/AddResourceButton.jsx'
 
 export default class ResourceListContainer extends React.Component {
   render() {
-    return(
+    return(<div>
+      <div className="resourceListHeader">
+      <h4>Resources</h4>
+    </div>
       <div
         className="resourceListBigContainer"
       >
-      <h4>Resources</h4>
         <div
           className="resourceListContainer"
         >
           <ResourceList />
-          <AddResourceButton />
         </div>
+      </div>
+      <AddResourceButton />
       </div>
     )
   }
