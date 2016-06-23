@@ -7,15 +7,16 @@ import FontIcon from 'material-ui/FontIcon'
 class Player extends React.Component {
   constructor(props) {
     super(props)
-  }
+}
 
   handleClick() {
     this.props.showPlayerProfile(this.props.calId)
   }
+
   render () {
-    let redLevel = 216 + (this.props.missedPercentage * 1.5)
-    let greenLevel = 216 - (this.props.missedPercentage * 2)
-    let blueLevel = 216 - (this.props.missedPercentage * 2)
+    let redLevel = 216 - Math.round((this.props.missedPercentage * 0.4))
+    let greenLevel = 216 - Math.round((this.props.missedPercentage * 1.5))
+    let blueLevel = 216 - Math.round((this.props.missedPercentage * 1.5))
     let bgColor = "rgb(" + redLevel + "," + greenLevel + "," + blueLevel + ")"
 
     return(
@@ -25,7 +26,7 @@ class Player extends React.Component {
         onMouseEnter={() =>  this.props.showPlayerSchedule(this.props.calId)}
         onClick={() => this.handleClick()}
       >
-        {this.props.children} {this.props.missedPercentage}
+        {this.props.children}
       </li>
     );
   }

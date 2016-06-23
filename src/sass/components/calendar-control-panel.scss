@@ -1,73 +1,123 @@
-.calendarControlButton {
+
+
+.calendarControlPanel {
+  background-color: $box-backdrop-color;
+  padding: $close-spacing;
+  cursor:default;
 }
 
-.calendarControlButton:active {
-  background-color:#bbf1bb;
+.calendarControlButton {
+
 }
 
 .displayTogglePanel {
   background-color:$box-background-one;
   box-shadow: $shadow-1;
-  height:70px;
+  height:$button-height;
   position:relative;
   vertical-align:top;
-  width: 300px;
+  width: $event-control-width;
+  margin: auto;
 }
 
 .eventControlPanel {
-  margin-top: 15px;
-  width:300px;
+  width: $event-control-width;
   background-color:$box-background-one;
   box-shadow: $shadow-1;
+  margin: $close-spacing auto 0px auto;
 }
 
 .smallEventControl {
   position:relative;
   display:inline-block;
-  height:70px;
-  width: 300px * 0.25;
+  height:$button-height;
+  width: $small-button-width;
+  text-align: center;
+  line-height:0px !important;
 }
 
 .bigEventControl {
   box-sizing:border-box;
   background-color:$box-background-one;
   display:inline-block;
-  height:70px;
-  line-height:70px;
+  height:$button-height;
+  line-height:$button-height;
   vertical-align: middle;
   position:relative;
   -webkit-user-select: none;
-  width:150px;
+  width:$big-button-width;
   text-align: center;
   cursor:default;
-  font-weight:200;
-  font-size:18px;
+  font-weight:200 !important;
+  font-size:18px !important;
 }
 .eventTypeControlPanel {
-  width:150px;
+  width:$big-button-width;
   display:inline-block;
   vertical-align: top;
 }
 .otherEventControlPanel {
-  width:150px;
+  width:$big-button-width;
   display:inline-block;
   vertical-align: top;
 }
 .gameEventToggle {
-  background-color:#e6e6e6;
+  background-color:#f1bbbb;
 }
 .practiceEventToggle {
-  background-color:#a3efa3;
+  background-color:#a1d6a1;
 }
 .workoutEventToggle {
-  background-color:#a3efa3;
+  background-color:#e7efa3;
 }
 .meetingEventToggle {
-  background-color:#e6e6e6;
+  background-color:#b0f1df;
 }
 .dailyWeeklyEventToggle {
 
 }
 .commitButton {
-  background-color:#FF4136;
+  background-color:#d85b54 !important;
+  height:100% !important;
+  line-height:none !important;
+  border-radius: 0px !important;
+}
+.smallEventTypeLabel {
+  margin-top:4px;
+  font-size:10px;
+  color:grey;
+  clear:both;
+}
+.material-icons {
+  margin-top:5px;
+  font-size:40px !important;
+  color:grey !important;
+}
+
+.pressedCalendarControl {
+  background-color:#ececec;
+  color:grey;
+}
+
+.pressedSmallEventControlText {
+  color:black !important;
+}
+.pressedSmallEventControl {
+}
+
+.weeklyLabel {
+
+}
+
+.weeklyOnOff {
+}
+
+.weeklyOn {
+  font-weight:bold;
+  color:#4bab4b;
+}
+.weeklyText {
+  line-height:$button-height;
+  margin:0;
+  padding:0;
 }

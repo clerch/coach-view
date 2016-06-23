@@ -6,10 +6,15 @@ export default class ResourceListContainer extends React.Component {
   render() {
     return(
       <div
-        className="resourceListContainer"
+        className="resourceListBigContainer"
       >
-        <ResourceList />
-        <AddResourceButton />
+      <h4>Resources</h4>
+        <div
+          className="resourceListContainer"
+        >
+          <ResourceList />
+          <AddResourceButton />
+        </div>
       </div>
     )
   }

@@ -10,6 +10,8 @@ import { cleanModifiedEvents } from '../lib/cleanModifiedEvents'
 import { updateTeamCalendar } from '../lib/postingFunctions'
 import { getTeamData } from '../lib/loadingFunctions'
 import { showSnackbar } from '../actions/index'
+import FontIcon from 'material-ui/FontIcon'
+import FlatButton from 'material-ui/FlatButton'
 
 class CalendarControlPanel extends React.Component {
 
@@ -35,7 +37,7 @@ class CalendarControlPanel extends React.Component {
 
         <div className="displayTogglePanel">
           <CalendarControlButton
-            className="calendarControlButton bigEventControl"
+            className="teamControl calendarControlButton bigEventControl"
             toggleEvents={function() {
               this.props.toggleTeamEvents()
             }.bind(this)
@@ -43,7 +45,7 @@ class CalendarControlPanel extends React.Component {
           >Team Schedule
           </CalendarControlButton>
           <CalendarControlButton
-            className="calendarControlButton bigEventControl"
+            className="playerControl calendarControlButton bigEventControl"
             toggleEvents={function() {
               this.props.togglePlayerEvents()
             }.bind(this)
@@ -60,7 +62,10 @@ class CalendarControlPanel extends React.Component {
                 this.props.setAddEventType('Game')
               }.bind(this)}
             >
-            G
+            <FontIcon
+              className="material-icons"
+            >stars</FontIcon>
+          <p className="smallEventTypeLabel">Game</p>
             </EventTypeSelectorButton>
             <EventTypeSelectorButton
               className="practiceEventToggle smallEventControl"
@@ -68,7 +73,10 @@ class CalendarControlPanel extends React.Component {
                 this.props.setAddEventType('Practice')
               }.bind(this)}
             >
-            P
+              <FontIcon
+                className="material-icons"
+              >directions_run</FontIcon>
+            <p className="smallEventTypeLabel">Practice</p>
             </EventTypeSelectorButton>
             <EventTypeSelectorButton
               className="workoutEventToggle smallEventControl"
@@ -76,7 +84,10 @@ class CalendarControlPanel extends React.Component {
                 this.props.setAddEventType('Workout')
               }.bind(this)}
             >
-            W
+              <FontIcon
+                className="material-icons"
+              >fitness_center</FontIcon>
+            <p className="smallEventTypeLabel">Workout</p>
             </EventTypeSelectorButton>
             <EventTypeSelectorButton
               className="meetingEventToggle smallEventControl"
@@ -84,7 +95,10 @@ class CalendarControlPanel extends React.Component {
                 this.props.setAddEventType('Meeting')
               }.bind(this)}
             >
-            M
+              <FontIcon
+                className="material-icons"
+              >people</FontIcon>
+            <p className="smallEventTypeLabel">Meeting</p>
             </EventTypeSelectorButton>
           </div>
           <div className="otherEventControlPanel">
@@ -93,15 +107,16 @@ class CalendarControlPanel extends React.Component {
               toggleDailyWeekly={function() {
                 this.props.toggleDailyWeekly()
               }.bind(this)}
-            >
-            {this.props.currentValue === 'daily' ? 'Weekly' : 'Daily'}
+            ><span className="weeklyLabel weeklyText">Weekly: </span>
+          <span className="weeklyOnOff weeklyText">{this.props.currentValue === 'daily' ? 'Off' : 'On'}</span>
           </DailyWeeklyToggleButton>
-            <CommitButton
+            <FlatButton
               className="commitButton bigEventControl"
-              commit={() => this.handleCommit()}
+              style={{lineHeight:"none"}}
+              onTouchTap={() => this.handleCommit()}
             >
             Commit
-          </CommitButton>
+          </FlatButton>
           </div>
         </div>
       </div>
