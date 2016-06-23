@@ -1,7 +1,6 @@
 import React from 'react'
 import TeamSettingsButton from './TeamSettingsButton.jsx'
 import Footer from './Footer.jsx'
-import NotificationBadgeContainer from '../containers/NotificationBadgeContainer.jsx'
 
 
 
@@ -13,9 +12,9 @@ export default class NavBar extends React.Component {
       <nav
         className="navBar"
       >
-      <NotificationBadgeContainer />
       <TeamSettingsButton/>
         <div className="navBarTitle">Lineup</div>
+        <div className="navBarTeamName"></div>
       </nav>
       <Footer />
       </div>
