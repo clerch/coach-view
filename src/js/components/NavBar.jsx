@@ -4,6 +4,8 @@ import Footer from './Footer.jsx'
 import NotificationBadgeContainer from '../containers/NotificationBadgeContainer.jsx'
 
 
+
+
 export default class NavBar extends React.Component {
   render() {
     return(
@@ -14,8 +16,6 @@ export default class NavBar extends React.Component {
       <NotificationBadgeContainer />
       <TeamSettingsButton/>
         <div className="navBarTitle">Lineup</div>
-      
-
       </nav>
       <Footer />
       </div>
