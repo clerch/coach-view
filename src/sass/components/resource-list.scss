@@ -1,11 +1,19 @@
+.resourceListBigContainer {
+  background-color: $box-backdrop-color;
+  margin:15px auto;
+  clear:left;
+  padding: $close-spacing;
+  position:relative;
+  cursor: default;
+}
+
 .resourceListContainer {
-  width:300px;
+  width:$event-control-width;
   max-height:280px;
   background-color: $box-background-one;
   position:relative;
-  margin:15px auto;
   box-shadow: $shadow-1;
-  clear:left;
+
 }
 
 .resourceList {
@@ -17,7 +25,8 @@
   position:relative;
 }
 .resourceList li {
-  background-color:#d8d8d8;
+  height:20px;
+  background-color:#d8c6b7;
   margin: 3px;
   padding:5px;
   font-weight:200;
@@ -43,4 +52,13 @@
   float:right;
 }
 
-
+.resourceListBigContainer h4 {
+  margin:0 0 4px 0;
+  padding:4px;
+  height:20px;
+  text-align:center;
+  background-color:#48627d;
+  color:honeydew;
+  font-weight:200;
+  font-size:18px;
+}

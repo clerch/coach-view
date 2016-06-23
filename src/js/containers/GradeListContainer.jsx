@@ -13,10 +13,10 @@ const headers = [
 
 const rows = [
   {columns: [
-    {value: 'Class 1'},
-    {value: 'Test 1'},
+    {value: 'Math 200'},
+    {value: 'Final'},
     {value: '60%'},
-    {value: false},
+    {value: true},
     // {value: 'Michael at 4:20pm'}
   ]},
   {columns: [
@@ -65,7 +65,7 @@ const onChange = (row) => {
 export default class GradeListContainer extends React.Component {
   render () {
     return (
-      <TableEdit 
+      <TableEdit
       onChange={onChange}
       rows={rows}
       headerColumns={headers}

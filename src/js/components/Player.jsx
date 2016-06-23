@@ -7,15 +7,16 @@ import FontIcon from 'material-ui/FontIcon'
 class Player extends React.Component {
   constructor(props) {
     super(props)
-  }
+}
 
   handleClick() {
     this.props.showPlayerProfile(this.props.calId)
   }
+
   render () {
-    let redLevel = 216 + (this.props.missedPercentage * 1.5)
-    let greenLevel = 216 - (this.props.missedPercentage * 2)
-    let blueLevel = 216 - (this.props.missedPercentage * 2)
+    let redLevel = 216 + Math.round((this.props.missedPercentage * 1.5))
+    let greenLevel = 216 - Math.round((this.props.missedPercentage * 1))
+    let blueLevel = 216 - Math.round((this.props.missedPercentage * 1))
     let bgColor = "rgb(" + redLevel + "," + greenLevel + "," + blueLevel + ")"
 
     return(
